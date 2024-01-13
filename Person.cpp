@@ -1,5 +1,8 @@
 #include "Person.h"
 #include <iostream>
+Person::Person()
+{
+}
 Person::Person(std::string name, int age, bool isMarried) {
 	if (name.size() > 6) {
 		this->name = name;
@@ -19,6 +22,26 @@ Person::Person(std::string name, int age, bool isMarried) {
 std::string Person::getName()
 {
 	return this->name;
+}
+
+void Person::setName(std::string name)
+{
+	if (name != "") {
+		this->name = name;
+	}
+	else{
+		throw std::exception("Cannot set this name");
+	}
+}
+
+void Person::setAge(int age)
+{
+	if (this->age > 15 && this->age < 65) {
+		this->age = age;
+	}
+	else {
+		throw std::exception("Cannot set this age");
+	}
 }
 
 int Person::getAge()
