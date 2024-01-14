@@ -17,5 +17,6 @@ public:
 	void setMarried();
 	void setNotMarried();
 	virtual void displayInfo();
+
 };
 

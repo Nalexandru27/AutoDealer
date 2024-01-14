@@ -36,7 +36,7 @@ void Person::setName(std::string name)
 
 void Person::setAge(int age)
 {
-	if (this->age > 15 && this->age < 65) {
+	if (age> 15 && age < 65) {
 		this->age = age;
 	}
 	else {
@@ -74,5 +74,6 @@ void Person::displayInfo()
 	else {
 		std::cout << std::endl << "Person is not married.";
 	}
+	std::cout << std::endl;
 }
 

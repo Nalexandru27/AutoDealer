@@ -31,5 +31,7 @@ public:
 	void setBonus(float bonus);
 	void addJobDescription(std::string description);
 	void addExperience(std::string experience);
+	void displayInfo();
+	friend std::istream& operator>>(std::istream& in, Employee& e);
 };
 
