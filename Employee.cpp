@@ -3,10 +3,8 @@
 #include <fstream>
 Employee::Employee()
 {
+
 }
-
-
-
 
 Employee::Employee(std::string name, int age, bool isMarried, float salary, const char* department, const char* job, std::string jobDescription, bool isManager, int noPreviousWorkingExperience, std::string* experience, int noLanguagesKnown, std::string* languagesKnown, float bonus)
 {
@@ -226,9 +224,9 @@ void Employee::displayInfo()
 	}
 	std::cout << std::endl << "This employee had " << this->noPreviousWorkingExperience << " previous working experiences: ";
 	for (int i = 0; i < this->noPreviousWorkingExperience; i++) {
-		std::cout << std::endl << i << "." << this->experience[i];
+		std::cout << std::endl << i+1 << "." << this->experience[i];
 	}
-	std::cout << std::endl << "This employee speaks " << this->noLanguagesKnown << ": ";
+	std::cout << std::endl << "This employee speaks " << this->noLanguagesKnown << " languages: ";
 	std::cout << this->languagesKnown[0];
 	for (int i = 1; i < this->noLanguagesKnown; i++) {
 		std::cout << ", " << this->languagesKnown[i];
@@ -240,7 +238,7 @@ void Employee::displayInfo()
 
 std::istream& operator>>(std::istream& in, Employee& e)
 {
-	int salary;
+	float salary;
 	std::cout << std::endl << "What is the salary of the employee? ";
 	in >> salary;
 	e.setSalary(salary);
@@ -289,7 +287,7 @@ std::istream& operator>>(std::istream& in, Employee& e)
 	if (value > 0) {
 		std::string* languages = new std::string[value];
 		for (int i = 0; i < value; i++) {
-			std::cout << std::endl << "Enter language " << i << "spoken: ";
+			std::cout << std::endl << "Enter language " << i << " spoken: ";
 			getline(in, s);
 			if (s.size() > 3) {
 				languages[i] = s;
@@ -311,3 +309,57 @@ std::istream& operator>>(std::istream& in, Employee& e)
 	}
 	return in;
 }
+
+std::ofstream& operator<<(std::ofstream& outF,const Employee& e) {
+	e.writePersonToBinaryFile(outF);
+	outF.write((char*)&e.salary, sizeof(float));
+	ClassUtils::serializeChar(outF, e.department);
+	ClassUtils::serializeChar(outF, e.job);
+	ClassUtils::serializeString(outF, e.jobDescription);
+	outF.write((char*)&e.isManager, sizeof(bool));
+	outF.write((char*)&e.noPreviousWorkingExperience, sizeof(int));
+	for (int i = 0; i < e.noPreviousWorkingExperience; i++) {
+		ClassUtils::serializeString(outF, e.experience[i]);
+	}
+	outF.write((char*)&e.noLanguagesKnown, sizeof(int));
+	for (int i = 0; i < e.noLanguagesKnown; i++) {
+		ClassUtils::serializeString(outF, e.languagesKnown[i]);
+	}
+	outF.write((char*)&e.bonus, sizeof(float));
+	return outF;
+}
+
+std::ifstream& operator>>(std::ifstream& inF, Employee& e)
+{
+	e.readPersonFromBinaryFile(inF);
+	inF.read((char*)&e.salary, sizeof(float));
+	ClassUtils::deserializeChar(inF, e.department);
+	ClassUtils::deserializeChar(inF, e.job);
+	e.jobDescription = ClassUtils::deserializeString(inF);
+	inF.read((char*)&e.isManager, sizeof(bool));
+
+	inF.read((char*)&e.noPreviousWorkingExperience, sizeof(int));
+	if (e.experience != nullptr) {
+		delete[]e.experience;
+		e.experience = nullptr;
+	}
+	e.experience = new std::string[e.noPreviousWorkingExperience];
+	for (int i = 0; i < e.noPreviousWorkingExperience; i++) {
+		e.experience[i] = ClassUtils::deserializeString(inF);
+	}
+
+	inF.read((char*)&e.noLanguagesKnown, sizeof(int));
+	if (e.languagesKnown != nullptr) {
+		delete[]e.languagesKnown;
+		e.languagesKnown = nullptr;
+	}
+	e.languagesKnown = new std::string[e.noLanguagesKnown];
+	for (int i = 0; i < e.noLanguagesKnown; i++) {
+		e.languagesKnown[i] = ClassUtils::deserializeString(inF);
+	}
+
+	inF.read((char*)&e.bonus, sizeof(float));
+	return inF;
+}
+
+

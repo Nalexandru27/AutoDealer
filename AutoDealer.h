@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-enum Brands{None,Mercedes,Audi,Bwm,Chevrolet,Mazda,Toyota,Tesla,LandRover,Dacia,Renault,Lexus,Volvo,Volkswagen,Porsche};
+enum Brands{None,MercedesBenz,Audi,Bmw};
 
 class AutoDealer
 {
@@ -10,10 +10,11 @@ private:
 	const char* address;
 	Brands brand = None;
 	bool hasService = false;
-	int perimeterSize = 0;
-	int parkingSpots = 0;
+	int locationSize = 0;
+	int parkingSlots = 0;
 	std::string schedule = "";
 	int chargingStations = 0;
+	float rentPerMonth = 0.0f;
 	//Employee* employees = nullptr;
 	//Car* carsAvailable = nullptr;
 public:

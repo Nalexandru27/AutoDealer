@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AutoDealer.cpp" />
+    <ClCompile Include="ClassUtils.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoDealer.h" />
+    <ClInclude Include="ClassUtils.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Person.h" />
   </ItemGroup>

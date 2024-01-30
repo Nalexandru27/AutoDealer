@@ -1,5 +1,7 @@
 #include "Person.h"
+#include "ClassUtils.h"
 #include <iostream>
+#include <string>
 Person::Person()
 {
 }
@@ -76,4 +78,25 @@ void Person::displayInfo()
 	}
 	std::cout << std::endl;
 }
+
+void Person::writePersonToTextFile(std::ofstream& file)
+{
+	file << this->name << "\n";
+	file << this->age << "\n";
+	file << this->isMarried << "\n";
+}
+
+void Person::writePersonToBinaryFile(std::ofstream& file) const{
+	ClassUtils::serializeString(file, this->name);
+	file.write((char*)&this->age, sizeof(int));
+	file.write((char*)&this->isMarried, sizeof(bool));
+}
+
+void Person::readPersonFromBinaryFile(std::ifstream& file)
+{
+	this->name = ClassUtils::deserializeString(file);
+	file.read((char*)&this->age, sizeof(int));
+	file.read((char*)&this->isMarried, sizeof(bool));
+}
+
 

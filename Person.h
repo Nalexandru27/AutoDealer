@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <fstream>
 class Person
 {
 protected:
@@ -17,6 +17,8 @@ public:
 	void setMarried();
 	void setNotMarried();
 	virtual void displayInfo();
-
+	void writePersonToTextFile(std::ofstream& file); 
+	void writePersonToBinaryFile(std::ofstream& file) const;
+	void readPersonFromBinaryFile(std::ifstream& file);
 };
 
