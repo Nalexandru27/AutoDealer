@@ -202,7 +202,7 @@ void Employee::addExperience(std::string experience)
 		delete[]this->experience;
 		this->experience = temp;
 	}
-	else {
+	else if(experience != ""){
 		this->experience = new std::string[1];
 		this->experience[0] = experience;
 		this->noPreviousWorkingExperience++;
@@ -211,27 +211,27 @@ void Employee::addExperience(std::string experience)
 
 void Employee::displayInfo()
 {
-	//Person::displayInfo();
-	std::cout << std::endl << "This employee salary is: " << this->salary <<" ron";
-	std::cout << std::endl << "This employee is working at " << this->department << ".";
-	std::cout << std::endl << "This employee's job is: " << this->job;
-	std::cout << std::endl << "This job description is: " << this->jobDescription;
+	Person::displayInfo();
+	std::cout << std::endl << "Employee salary is: " << this->salary <<" ron";
+	std::cout << std::endl << "Employee is working at " << this->department << ".";
+	std::cout << std::endl << "Employee's job is: " << this->job;
+	std::cout << std::endl << "Job description is: " << this->jobDescription;
 	if (this->isManager == true) {
-		std::cout << std::endl << "This employee is a manager.";
+		std::cout << std::endl << "Employee is a manager.";
 	}
 	else {
-		std::cout << std::endl << "This employee is not a manager.";
+		std::cout << std::endl << "Employee is not a manager.";
 	}
-	std::cout << std::endl << "This employee had " << this->noPreviousWorkingExperience << " previous working experiences: ";
+	std::cout << std::endl << "Employee had " << this->noPreviousWorkingExperience << " previous working experiences: ";
 	for (int i = 0; i < this->noPreviousWorkingExperience; i++) {
 		std::cout << std::endl << i+1 << "." << this->experience[i];
 	}
-	std::cout << std::endl << "This employee speaks " << this->noLanguagesKnown << " languages: ";
+	std::cout << std::endl << "Employee speaks " << this->noLanguagesKnown << " languages: ";
 	std::cout << this->languagesKnown[0];
 	for (int i = 1; i < this->noLanguagesKnown; i++) {
 		std::cout << ", " << this->languagesKnown[i];
 	}
-	std::cout << std::endl << "This employee will receive a bonus of: " << this->bonus << " ron";
+	std::cout << std::endl << "Employee will receive a bonus of: " << this->bonus << " ron";
 	std::cout << std::endl;
 
 }
@@ -385,6 +385,7 @@ void Employee::writeEmployeeToTextFile(std::ofstream& g)
 void Employee::readEmployeeFromTextFile(std::ifstream& f) {
 	
 	Person::readPersonFromTextFILE(f);
+
 	f >> this->salary;
 
 	if (this->department != nullptr) {
@@ -434,5 +435,36 @@ void Employee::readEmployeeFromTextFile(std::ifstream& f) {
 	}
 
 	f >> this->bonus;
+
+	f.ignore();
+}
+
+void Employee::createTextFileReport(std::ofstream& g, int noEmployees, Employee* employeeArray)
+{
+	if (employeeArray != nullptr && noEmployees > 0) {
+		for (int i = 0; i < noEmployees; i++) {
+			g << "Employee " << i + 1 << ": " << employeeArray[i].name << "\n";
+			g << "Age: " << employeeArray[i].age << "\n";
+			employeeArray[i].isMarried ? g << "Is married\n": g << "Is not married\n";
+			g << "Salary: " << employeeArray[i].salary << "\n";
+			g << "Working in " << employeeArray[i].department << " department" << "\n";
+			g << "Job profile: " << employeeArray[i].job << "\n";
+			g << "Job responsabilities: " << employeeArray[i].jobDescription << "\n";
+			employeeArray[i].isManager ? g << "Is manager\n" : g << "Is not manager\n";
+			g << "Number of previous working experiences: " << employeeArray[i].noPreviousWorkingExperience << "\n";
+			for (int j = 0; j < employeeArray[i].noPreviousWorkingExperience; j++) {
+				g << j+1 << ". " << employeeArray[i].experience[j] << "\n";
+			}
+			g << "Number of languages known: " << employeeArray[i].noLanguagesKnown << "\n";
+			for (int k = 0; k < employeeArray[i].noLanguagesKnown; k++) {
+				g << "- " << employeeArray[i].languagesKnown[k] << "\n";
+			}
+			g << "Monthly bonus: " << employeeArray[i].bonus << "\n";
+			g << "\n\n";
+		}
+	}
+	else {
+		throw std::exception("Couldn't create the report with the employees");
+	}
 }
 

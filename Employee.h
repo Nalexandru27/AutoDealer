@@ -61,6 +61,9 @@ public:
 	//read data from text file
 	void readEmployeeFromTextFile(std::ifstream& f);
 
+	//create a report of employees to a text file similiar with display info on the screen
+	static void createTextFileReport(std::ofstream& g, int noEmployees, Employee* employeeArray);
+
 };
 
 

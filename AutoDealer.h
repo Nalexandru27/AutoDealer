@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include "Employee.h"
 enum Brands{None,MercedesBenz,Audi,Bmw};
 
 class AutoDealer
@@ -15,7 +15,8 @@ private:
 	std::string schedule = "";
 	int chargingStations = 0;
 	float rentPerMonth = 0.0f;
-	//Employee* employees = nullptr;
+	int noEmployees = 0;
+	Employee* employees = nullptr;
 	//Car* carsAvailable = nullptr;
 public:
 

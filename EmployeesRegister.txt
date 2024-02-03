@@ -1,0 +1,15 @@
+John Doe
+25
+1
+2590.89
+sales
+sales representative
+Taking care of our customers needs and presents the available options
+0
+2
+cashier
+help desk support
+2
+romanian
+english
+130

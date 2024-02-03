@@ -68,15 +68,14 @@ void Person::setNotMarried()
 
 void Person::displayInfo()
 {
-	std::cout << std::endl << "Person name: " << this->name;
-	std::cout << std::endl << "Person age: " << this->age;
+	std::cout << std::endl << "Name: " << this->name;
+	std::cout << std::endl << "Age: " << this->age;
 	if (this->isMarried == true) {
-		std::cout << std::endl << "Person is married.";
+		std::cout << std::endl << "Is married.";
 	}
 	else {
-		std::cout << std::endl << "Person is not married.";
+		std::cout << std::endl << "Is not married.";
 	}
-	std::cout << std::endl;
 }
 
 void Person::writePersonToTextFile(std::ofstream& file)
@@ -100,7 +99,6 @@ void Person::readPersonFromBinaryFile(std::ifstream& file)
 }
 
 void Person::readPersonFromTextFILE(std::ifstream& file) {
-	file.ignore();
 	getline(file, this->name);
 	file >> this->age;
 	int aux;

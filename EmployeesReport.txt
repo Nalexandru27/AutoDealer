@@ -1,0 +1,34 @@
+Employee 1: John Doe
+Age: 25
+Is married
+Salary: 2590.89
+Working in sales department
+Job profile: sales representative
+Job responsabilities: Taking care of our customers needs and presents the available options
+Is not manager
+Number of previous working experiences: 2
+1. cashier
+2. help desk support
+Number of languages known: 2
+- romanian
+- english
+Monthly bonus: 130
+
+
+Employee 2: Carl Doris
+Age: 21
+Is not married
+Salary: 2545.89
+Working in sales department
+Job profile: sales manager
+Job responsabilities: Taking care of our customers needs and presents the available options
+Is manager
+Number of previous working experiences: 1
+1. cashier
+Number of languages known: 3
+- romanian
+- english
+- french
+Monthly bonus: 150
+
+

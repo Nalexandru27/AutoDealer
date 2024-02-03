@@ -91,5 +91,26 @@ int main() {
 	cout << endl << endl;
 	em4.displayInfo();
 	cout << endl << endl << endl;
+
+	ifstream rBinFile("Employees.bin", ios::binary | ios::in);
+	Employee em5;
+	rBinFile >> em5;
+	cout << endl << endl << "Displaying a employee read from a bin file: (testing)";
+	em5.displayInfo();
+	rBinFile.close();
+
+	ofstream WTextFile("EmployeesRegister.txt");
+	em5.writeEmployeeToTextFile(WTextFile);
+
+
+	ifstream textFile("Employees.txt");
+	Employee* employees = new Employee[2];
+	for (int i = 0; i < 2; i++) {
+		employees[i].readEmployeeFromTextFile(textFile);
+	}
+	textFile.close();
+	ofstream textFile2("EmployeesReport.txt");
+	Employee::createTextFileReport(textFile2,2,employees);
+	textFile2.close();
 	return 0;
 }
