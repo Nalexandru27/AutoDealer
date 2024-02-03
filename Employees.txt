@@ -1,0 +1,30 @@
+John Doe
+25
+1
+2590.89
+sales
+sales representative
+Taking care of our customers needs and presents the available options
+0
+2
+cashier
+help desk support
+2
+romanian
+english
+130
+Carl Doris
+21
+0
+2545.89
+sales
+sales manager
+Taking care of our customers needs and presents the available options
+1
+1
+cashier
+3
+romanian
+english
+french
+150

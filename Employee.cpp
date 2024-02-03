@@ -363,3 +363,76 @@ std::ifstream& operator>>(std::ifstream& inF, Employee& e)
 }
 
 
+void Employee::writeEmployeeToTextFile(std::ofstream& g)
+{
+	writePersonToTextFile(g);
+	g << this->salary << "\n";
+	g << this->department << "\n";
+	g << this->job << "\n";
+	g << this->jobDescription << "\n";
+	g << this->isManager << "\n";
+	g << this->noPreviousWorkingExperience << "\n";
+	for (int i = 0; i < this->noPreviousWorkingExperience; i++) {
+		g << this->experience[i] << "\n";
+	}
+	g << this->noLanguagesKnown << "\n";
+	for (int i = 0; i < this->noLanguagesKnown; i++) {
+		g << this->languagesKnown[i] << "\n";
+	}
+	g << this->bonus << "\n";
+}
+
+void Employee::readEmployeeFromTextFile(std::ifstream& f) {
+	
+	Person::readPersonFromTextFILE(f);
+	f >> this->salary;
+
+	if (this->department != nullptr) {
+		delete[]this->department;
+		this->department = nullptr;
+	}
+	char buffer[100];
+	f.ignore();
+	f.getline(buffer, 100);
+	this->department = new char[strlen(buffer) + 1];
+	strcpy_s(this->department, strlen(buffer) + 1, buffer);
+
+	if (this->job != nullptr) {
+		delete[]this->job;
+		this->job = nullptr;
+	}
+	f.getline(buffer, 100);
+	this->job = new char[strlen(buffer) + 1];
+	strcpy_s(this->job, strlen(buffer) + 1, buffer);
+
+	getline(f, this->jobDescription);
+
+	int aux; 
+	f >> aux;
+	aux == 1 ? setIsManager() : setIsNotManager();
+
+	if (this->experience != nullptr) {
+		delete[]this->experience;
+		this->experience = nullptr;
+	}
+	f >> this->noPreviousWorkingExperience;
+	f.ignore();
+	this->experience = new std::string[this->noPreviousWorkingExperience];
+	for (int i = 0; i < this->noPreviousWorkingExperience; i++) {
+		getline(f, this->experience[i]);
+	}
+
+	if (this->languagesKnown != nullptr) {
+		delete[]this->languagesKnown;
+		this->languagesKnown = nullptr;
+	}
+	f >> this->noLanguagesKnown;
+	f.ignore();
+	this->languagesKnown = new std::string[this->noLanguagesKnown];
+	for (int i = 0; i < this->noLanguagesKnown; i++) {
+		getline(f, this->languagesKnown[i]);
+	}
+
+	f >> this->bonus;
+}
+

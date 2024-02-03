@@ -3,7 +3,7 @@
 class Person
 {
 protected:
-	std::string name = "";
+	std::string name = "no name found";
 	int age = 0;
 	bool isMarried = false;
 public:
@@ -17,7 +17,10 @@ public:
 	void setMarried();
 	void setNotMarried();
 	virtual void displayInfo();
+
+	void readPersonFromTextFILE(std::ifstream& file);
 	void writePersonToTextFile(std::ofstream& file); 
+
 	void writePersonToBinaryFile(std::ofstream& file) const;
 	void readPersonFromBinaryFile(std::ifstream& file);
 };

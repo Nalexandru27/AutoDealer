@@ -99,4 +99,13 @@ void Person::readPersonFromBinaryFile(std::ifstream& file)
 	file.read((char*)&this->isMarried, sizeof(bool));
 }
 
+void Person::readPersonFromTextFILE(std::ifstream& file) {
+	file.ignore();
+	getline(file, this->name);
+	file >> this->age;
+	int aux;
+	file >> aux;
+	aux == 1 ? this->isMarried = true : this->isMarried = false;
+}
+
 

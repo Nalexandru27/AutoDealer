@@ -53,7 +53,7 @@ int main() {
 	}*/
 	Employee em1("John Doe", 25, true, 2590.89, "sales", "sales representative", "Taking care of our customers needs and presents the available options", false, 2, new string[2]{ "cashier","help desk support" }, 2, new string[2]{ "romanian","english" }, 130);
 	
-	ofstream oBinFile("Employees.bin", ios::binary | ios::out);
+	/*ofstream oBinFile("Employees.bin", ios::binary | ios::out);
 	oBinFile << em1;
 	oBinFile.close();
 
@@ -62,6 +62,34 @@ int main() {
 	iBinFile >> em2;
 	em2.displayInfo();
 	iBinFile.close();
+	
+	Person person1("John Doe", 28, false);
+	ofstream g("Person.txt");
+	person1.writePersonToTextFile(g);
+	g.close();*/
+	
+	cout << "Employees wrote to the text file: (testing)" << endl << endl;
+	em1.displayInfo();
+	cout << endl << endl;
+	Employee em2("Carl Doris", 21, false, 2545.89, "sales", "sales manager", "Taking care of our customers needs and presents the available options", true, 1, new string[1]{ "cashier" }, 3, new string[3]{ "romanian","english","french" }, 150);
+	em2.displayInfo();
+	cout << endl << endl << endl;
 
+	ofstream wTextFile("Employees.txt");
+	em1.writeEmployeeToTextFile(wTextFile);
+	em2.writeEmployeeToTextFile(wTextFile);
+	wTextFile.close();
+
+	ifstream rTextFile("Employees.txt");
+	Employee em3, em4;
+	em3.readEmployeeFromTextFile(rTextFile);
+	em4.readEmployeeFromTextFile(rTextFile);
+	rTextFile.close();
+
+	cout << "Employees read from the text file: (testing)" << endl << endl;
+	em3.displayInfo();
+	cout << endl << endl;
+	em4.displayInfo();
+	cout << endl << endl << endl;
 	return 0;
 }

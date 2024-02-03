@@ -19,10 +19,15 @@ private:
 	float bonus = 0.0f;
 
 public:
+	//constructors
 	Employee();
 	Employee(std::string name, int age, bool isMarried, float salary, const char* department, const char* job, std::string jobDescription, bool isManager, int noPreviousWorkingExperience, std::string* experience, int noLanguagesKnown, std::string* languagesKnown, float bonus);
 	Employee(const Employee& e);
+
+	//operator=
 	Employee& operator=(const Employee& e);
+
+	//destructor
 	~Employee();
 
 	//setters
@@ -44,10 +49,18 @@ public:
 	//read data from keyboard
 	friend std::istream& operator>>(std::istream& in, Employee& e);
 
-	//write to binary file
+	//write to binary filesa
 	friend std::ofstream& operator<<(std::ofstream& outF, const Employee& e);
 
 	//read from binary file
 	friend std::ifstream& operator>>(std::ifstream& inF, Employee& e);
+
+	//write data to text file
+	void writeEmployeeToTextFile(std::ofstream& g);
+
+	//read data from text file
+	void readEmployeeFromTextFile(std::ifstream& f);
+
 };
+
 
