@@ -130,14 +130,18 @@
     <ClCompile Include="AutoDealer.cpp" />
     <ClCompile Include="ClassUtils.cpp" />
     <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AutoDealer.h" />
     <ClInclude Include="ClassUtils.h" />
     <ClInclude Include="Employee.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
