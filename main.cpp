@@ -19,6 +19,7 @@ and for the cars. The app should allow the user to add/delete a new employee, ad
 #include <iostream>
 #include <fstream>
 #include "Employee.h"
+#include "Engine.h"
 
 using namespace std;
 
@@ -68,7 +69,7 @@ int main() {
 	person1.writePersonToTextFile(g);
 	g.close();*/
 	
-	cout << "Employees wrote to the text file: (testing)" << endl << endl;
+	/*cout << "Employees wrote to the text file: (testing)" << endl << endl;
 	em1.displayInfo();
 	cout << endl << endl;
 	Employee em2("Carl Doris", 21, false, 2545.89, "sales", "sales manager", "Taking care of our customers needs and presents the available options", true, 1, new string[1]{ "cashier" }, 3, new string[3]{ "romanian","english","french" }, 150);
@@ -111,6 +112,16 @@ int main() {
 	textFile.close();
 	ofstream textFile2("EmployeesReport.txt");
 	Employee::createTextFileReport(textFile2,2,employees);
-	textFile2.close();
+	textFile2.close();*/
+
+	Engine e1(115, 260, 4, 1.5, false, "d15",PETROL);
+	cout << e1;
+	cout << endl;
+	e1 += 15;
+	cout << e1;
+
+	int a = e1;
+	cout << endl << a << endl;
+	cout << e1();
 	return 0;
 }
