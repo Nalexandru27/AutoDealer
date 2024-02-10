@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Employee.h"
+#include "Car.h"
 
 class AutoDealer
 {
@@ -15,7 +16,7 @@ private:
 	float rentPerMonth = 0.0f;
 	int noEmployees = 0;
 	Employee* employees = nullptr;
-	//Car* carsAvailable = nullptr;
+	Car* carsAvailable = nullptr;
 public:
 
 };
