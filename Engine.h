@@ -24,6 +24,9 @@ public:
 	//constructor
 	Engine(int horsePowerint, int torque, int noCylinders, float capacity, bool isHybrid, std::string series, Fuel fuel);
 
+	//operator=
+	Engine& operator=(const Engine& e);
+
 	//getters
 	int getHorsePower();
 

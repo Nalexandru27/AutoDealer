@@ -1,33 +1,36 @@
 #pragma once
 #include <string>
+#include "Engine.h"
+#include <vector>
 
 enum Transmission {MANUAL,SEMI_AUTOMATIC, AUTOMATIC};
 
 enum DriveTrain {FOUR_WHEEL_DRIVE, FRONT_WHEEL_DRIVE, REAR_WHEEL_DRIVE};
 
-
-
 class Vehicle
 {
 protected:
 	const std::string vehicleIdentificationNumber = "undefined";
-	//Engine engine;
+	Engine engine;
 	Transmission transmission = MANUAL;
 	DriveTrain driveTrain = FRONT_WHEEL_DRIVE;
 	int noWheels = 0;
 	int kilometers = 0;
-	const std::string brand = "unknown";
+	std::string brand = "unknown";
 	int manufactureYear = 0;
 	bool hasAccidents = false;
 	int noServices = 0;
-	std::string* services = nullptr;
+	std::vector<std::string> service{};
 	char* color = nullptr;
 	float price = 0.0f;
+
 public:
-	
+
+	static float MIN_PRICE;
+
 	//Construtors
 	Vehicle();
-	Vehicle(const std::string vehicleIdentificationNumber, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, const std::string brand, int manufacturerYear, bool hasAccidents, int noServices, std::string* services, const char* color, float price);
+	Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, std::string brand, int manufacturerYear, bool hasAccidents, int noServices, std::string* services, const char* color, float price);
 	
 	//Destructor
 	~Vehicle();
@@ -47,7 +50,7 @@ public:
 
 	int getKm();
 
-	const std::string getBrand();
+	std::string getBrand();
 
 	int getManufactureYear();
 
@@ -55,8 +58,8 @@ public:
 
 	int getNoServices();
 
-	std::string* getServices();
-
+	std::vector<std::string> getServices();
+	
 	char* getColor();
 
 	float getPrice();
@@ -79,6 +82,11 @@ public:
 	virtual void Stop() = 0;
 
 	virtual void checkSystems() = 0;
+
+	//operator<<
+	friend void operator>>(std::ostream& out, const Vehicle& v);
+
+
 
 };
 

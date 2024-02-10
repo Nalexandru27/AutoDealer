@@ -11,6 +11,16 @@ Engine::Engine(int horsePower, int torque, int noCylinders, float capacity, bool
 	this->fuel = fuel;
 }
 
+Engine& Engine::operator=(const Engine& e)
+{
+	if (this != &e) {
+		this->horsePower = e.horsePower;
+		this->torque = e.torque;
+		this->fuel = e.fuel;
+	}
+	return *this;
+}
+
 int Engine::getHorsePower()
 {
 	return this->horsePower;

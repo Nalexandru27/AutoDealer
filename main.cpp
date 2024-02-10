@@ -20,6 +20,8 @@ and for the cars. The app should allow the user to add/delete a new employee, ad
 #include <fstream>
 #include "Employee.h"
 #include "Engine.h"
+#include "Vehicle.h"
+#include <vector>
 
 using namespace std;
 
@@ -123,5 +125,13 @@ int main() {
 	int a = e1;
 	cout << endl << a << endl;
 	cout << e1();
+
+	vector<int> v1 = { 1,4,2,6,2 };
+	//v1.clear();
+	cout << endl;
+	for (int i = 0; i < v1.size(); i++) {
+		cout << v1[i] << " ";
+	}
+	
 	return 0;
 }

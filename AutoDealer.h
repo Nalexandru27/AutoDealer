@@ -1,14 +1,12 @@
 #pragma once
 #include <string>
 #include "Employee.h"
-enum Brands{None,MercedesBenz,Audi,Bmw};
 
 class AutoDealer
 {
 private:
 	std::string name = "";
 	const char* address;
-	Brands brand = None;
 	bool hasService = false;
 	int locationSize = 0;
 	int parkingSlots = 0;
