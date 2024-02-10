@@ -114,3 +114,5 @@ void operator<<(std::ostream& out,const Engine& e)
 	out << std::endl << "It's running using: ";
 	e.fuel == 0 ? out << "petrol fuel" : out << "diesel fuel";
 }
+
+

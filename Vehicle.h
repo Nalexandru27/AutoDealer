@@ -17,6 +17,7 @@ protected:
 	int noWheels = 0;
 	int kilometers = 0;
 	std::string brand = "unknown";
+	std::string model = "unknown";
 	int manufactureYear = 0;
 	bool hasAccidents = false;
 	int noServices = 0;
@@ -30,7 +31,7 @@ public:
 
 	//Construtors
 	Vehicle();
-	Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, std::string brand, int manufacturerYear, bool hasAccidents, int noServices, std::string* services, const char* color, float price);
+	Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::string* services, const char* color, float price);
 	
 	//Destructor
 	~Vehicle();
@@ -84,9 +85,7 @@ public:
 	virtual void checkSystems() = 0;
 
 	//operator<<
-	friend void operator>>(std::ostream& out, const Vehicle& v);
-
-
+	friend void operator<<(std::ostream& out, const Vehicle& v);
 
 };
 
