@@ -9,10 +9,10 @@ class Engine
 protected:
 	int horsePower = 0;
 	int torque = 0;
-	const int noCylinders = 0;
-	const float capacity = 0.0f;
-	const bool isHybrid = false;
-	const std::string series = "unknown";
+	int noCylinders = 0;
+	float capacity = 0.0f;
+	bool isHybrid = false;
+	std::string series = "unknown";
 	Fuel fuel = PETROL;
 public:
 

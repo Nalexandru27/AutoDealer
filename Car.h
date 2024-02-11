@@ -11,10 +11,27 @@ private:
 	std::vector<std::string> interiorFeatures;
 	std::map<int, std::string> options;
 public:
+
+	static int NO_CAR;
+
 	//constructors
 	Car();
 
-	Car(Category carCategory,
+	Car(const std::string vehicleIdentificationNumber, 
+		Engine engine, 
+		Transmission transmission, 
+		DriveTrain driveTrain, 
+		int noWheels, 
+		int kilometers, 
+		std::string brand, 
+		std::string model, 
+		int manufacturerYear, 
+		bool hasAccidents, 
+		int noServices, 
+		std::vector<std::string> services,
+		const char* color, 
+		float price,
+		Category carCategory,
 		const std::vector<std::string>& exteriorFeatures,
 		const std::vector<std::string>& interiorFeatures,
 		const std::map<int, std::string>& carOptions);
@@ -23,7 +40,7 @@ public:
 	Car(const Car& c);
 
 	//move operator
-	Car(const Car&& other) noexcept;
+	Car(Car&& other) noexcept;
 
 	//destructor
 	~Car();
@@ -39,6 +56,20 @@ public:
 
 	//setters
 	void addOption(const int code,const std::string newOption);
+
+
+	//displaying
+	void displayExteriorFeatures();
+
+	void displayInteriorFeatures();
+
+	void displayOptions();
+
+	void Start();
+
+	void Stop();
+
+	void checkSystems();
 
 	//operator<<
 	friend void operator<<(std::ostream& out, const Car& c);

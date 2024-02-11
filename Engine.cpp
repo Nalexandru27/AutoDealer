@@ -16,6 +16,10 @@ Engine& Engine::operator=(const Engine& e)
 	if (this != &e) {
 		this->horsePower = e.horsePower;
 		this->torque = e.torque;
+		this->noCylinders = e.noCylinders;
+		this->capacity = e.capacity;
+		this->isHybrid = e.isHybrid;
+		this->series = e.series;
 		this->fuel = e.fuel;
 	}
 	return *this;

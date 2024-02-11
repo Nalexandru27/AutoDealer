@@ -2,6 +2,7 @@
 #include <string>
 #include "Engine.h"
 #include <vector>
+#include <algorithm>
 
 enum Transmission {MANUAL,SEMI_AUTOMATIC, AUTOMATIC};
 
@@ -21,7 +22,7 @@ protected:
 	int manufactureYear = 0;
 	bool hasAccidents = false;
 	int noServices = 0;
-	std::vector<std::string> service{};
+	std::vector<std::string> service;
 	char* color = nullptr;
 	float price = 0.0f;
 
@@ -31,7 +32,7 @@ public:
 
 	//Construtors
 	Vehicle();
-	Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::string* services, const char* color, float price);
+	Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::vector<std::string> service, const char* color, float price);
 	
 	//Destructor
 	~Vehicle();

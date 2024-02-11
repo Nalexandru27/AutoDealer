@@ -1,24 +1,36 @@
 #include "Car.h"
 #include <stdexcept>
 
-Car::Car() = default;
+int Car::NO_CAR = 0;
 
-Car::Car(Category carCategory, 
-	const std::vector<std::string>& exteriorFeatures, 
-	const std::vector<std::string>& interiorFeatures, 
+Car::Car() : Vehicle() { 
+	Car::NO_CAR++; 
+};
+
+Car::Car(const std::string vehicleIdentificationNumber,Engine engine,Transmission transmission,DriveTrain driveTrain,int noWheels,int kilometers,std::string brand,std::string model,int manufacturerYear,bool hasAccidents,int noServices,std::vector<std::string> services,const char* color,float price,
+	Category carCategory,
+	const std::vector<std::string>& exteriorFeatures,
+	const std::vector<std::string>& interiorFeatures,
 	const std::map<int, std::string>& carOptions):
+	Vehicle(vehicleIdentificationNumber, engine, transmission, driveTrain, noWheels, kilometers, brand, model, manufacturerYear, hasAccidents, noServices, services, color, price),
 	category(carCategory),
 	exteriorFeatures(exteriorFeatures),
 	interiorFeatures(interiorFeatures),
-	options(carOptions) {}
+	options(carOptions) {
+	Car::NO_CAR++;
+}
 
-Car::Car(const Car& c):
+Car::Car(const Car& c) :
+	Vehicle(c),
 	category(c.category),
 	exteriorFeatures(c.exteriorFeatures),
 	interiorFeatures(c.interiorFeatures),
-	options(c.options) {}
+	options(c.options) {
+	Car::NO_CAR++;
+}
 
-Car::Car(const Car&& other) noexcept :
+Car::Car(Car&& other) noexcept :
+	Vehicle(std::move(other)),
 	category(std::move(other.category)),
 	exteriorFeatures(std::move(other.exteriorFeatures)),
 	interiorFeatures(std::move(other.interiorFeatures)),
@@ -61,8 +73,81 @@ void Car::addOption(const int code,const std::string newOption) {
 	}
 }
 
+void Car::displayExteriorFeatures() {
+	std::cout << std::endl << "Exterior features: ";
+	for (size_t i = 0; i < this->exteriorFeatures.size(); i++) {
+		std::cout << std::endl << i + 1 << ". " << this->exteriorFeatures[i];
+	}
+}
+
+void Car::displayInteriorFeatures() {
+	std::cout << std::endl << "Interior features: ";
+	for (size_t i = 0; i < this->interiorFeatures.size(); i++) {
+		std::cout << std::endl << i + 1 << ". " << this->interiorFeatures[i];
+	}
+}
+
+void Car::displayOptions() {
+	std::cout << std::endl << "Options: ";
+	for (const auto& option : this->options) {
+		std::cout << std::endl << option.first << ": " << option.second;
+	}
+}
+
+void Car::Start() {
+	std::cout << std::endl << "Starting the engine and the control systems...";
+}
+
+void Car::Stop() {
+	std::cout << std::endl << "The engine is stop running";
+}
+
+void Car::checkSystems() {
+	std::cout << std::endl << "Systems are working properly. You are ready to start your trip!";
+}
+
 void operator<<(std::ostream& out, const Car& c)
 {
-	
-	out << std::endl << c.category;
+	out << static_cast<const Vehicle&>(c);
+	out << std::endl << "Category/type: ";
+	switch (c.category)
+	{
+	case 0:
+		out << "CONVERTIBLE";
+		break;
+	case 1:
+		out << "SMALL";
+		break;
+	case 2:
+		out << "WAGON";
+		break;
+	case 3:
+		out << "COUPE";
+		break;
+	case 4:
+		out << "SUV";
+		break;
+	case 5:
+		out << "VAN";
+		break;
+	case 6:
+		out << "LIMOUSIUNE";
+	default:
+		break;
+	}
+	out << std::endl << "Exterior features: ";
+	for (size_t i = 0; i < c.exteriorFeatures.size(); i++) {
+		out << std::endl << i + 1 << ". " << c.exteriorFeatures[i];
+	}
+	out << std::endl << "-----------------------------------------------";
+	out << std::endl << "Interior features: ";
+	for (size_t i = 0; i < c.interiorFeatures.size(); i++) {
+		out << std::endl << i + 1 << ". " << c.interiorFeatures[i];
+	}
+	out << std::endl << "-----------------------------------------------";
+	out << std::endl << "Options: ";
+	for (const auto& option : c.options) {
+		out << std::endl << option.first << ": " << option.second;
+	}
+	out << std::endl;
 }

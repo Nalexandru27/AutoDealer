@@ -119,24 +119,26 @@ int main() {
 	textFile2.close();*/
 
 	Engine e1(115, 260, 4, 1.5, false, "d15",PETROL);
-	cout << e1;
-	cout << endl;
-	e1 += 15;
-	cout << e1;
+	//cout << e1;
+	//cout << endl;
+	//e1 += 15;
+	//cout << e1;
 
-	int a = e1;
-	cout << endl << a << endl;
-	cout << e1();
+	//int a = e1;
+	//cout << endl << a << endl;
+	//cout << e1();
 
-	vector<int> v1 = { 1,4,2,6,2 };
+	//vector<int> v1 = { 1,4,2,6,2 };
 	//v1.clear();
-	cout << endl;
-	for (int i = 0; i < v1.size(); i++) {
-		cout << v1[i] << " ";
-	}
+	//cout << endl;
+	//for (int i = 0; i < v1.size(); i++) {
+	//	cout << v1[i] << " ";
+	//}
 	
+	Car c1("AB141ASFK", e1, AUTOMATIC, FOUR_WHEEL_DRIVE, 4, 60000, "Mercedes", "Class C", 2015, true, 2,{"Oil change", "Brakes change"}, "Green elmerald", 16999.99, COUPE, { "Spoiler","19's wheels" }, { "Black leather","Electric seats" }, { {3053,"Apple Car Play Wifi"},{4210,"Security Alarm"} });
 	
-	Car c1();
+	cout << endl << endl;
+	cout << c1;
 
 	return 0;
 }

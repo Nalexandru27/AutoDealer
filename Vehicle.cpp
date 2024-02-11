@@ -16,7 +16,7 @@ Vehicle::~Vehicle()
 
 Vehicle::Vehicle(const Vehicle& v)
 {
-	Engine::Engine(v.engine);
+	this->engine = v.engine;
 	this->transmission = v.transmission;
 	this->driveTrain = v.driveTrain;
 	this->noWheels = v.noWheels;
@@ -26,9 +26,7 @@ Vehicle::Vehicle(const Vehicle& v)
 	this->manufactureYear = v.manufactureYear;
 	this->hasAccidents = v.hasAccidents;
 	this->noServices = v.noServices;
-	for (int i = 0; i < this->noServices; i++) {
-		service.push_back(v.service[i]);
-	}
+	std::copy(v.service.begin(), v.service.end(), std::back_inserter(this->service));
 	this->color = new char[strlen(v.color) + 1];
 	strcpy_s(this->color, strlen(v.color) + 1, v.color);
 	this->price = v.price;
@@ -36,7 +34,7 @@ Vehicle::Vehicle(const Vehicle& v)
 
 Vehicle& Vehicle::operator=(const Vehicle& v)
 {
-	Engine::Engine(v.engine);
+	this->engine = v.engine;
 	this->transmission = v.transmission;
 	this->driveTrain = v.driveTrain;
 	this->noWheels = v.noWheels;
@@ -46,9 +44,7 @@ Vehicle& Vehicle::operator=(const Vehicle& v)
 	this->manufactureYear = v.manufactureYear;
 	this->hasAccidents = v.hasAccidents;
 	this->noServices = v.noServices;
-	for (int i = 0; i < this->noServices; i++) {
-		service.push_back(v.service[i]);
-	}
+	std::copy(v.service.begin(), v.service.end(), std::back_inserter(this->service));
 	if (this->color != nullptr) {
 		delete[]this->color;
 		this->color = nullptr;
@@ -59,9 +55,9 @@ Vehicle& Vehicle::operator=(const Vehicle& v)
 	return *this;
 }
 
-Vehicle::Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, const std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::string* services, const char* color, float price):vehicleIdentificationNumber(vehicleIdentificationNumber),brand(brand)
+Vehicle::Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, const std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::vector<std::string> service, const char* color, float price):vehicleIdentificationNumber(vehicleIdentificationNumber),brand(brand)
 {
-	this->engine = Engine(engine);
+	this->engine = engine;
 	this->transmission = transmission;
 	this->driveTrain = driveTrain;
 	this->noWheels = noWheels;
@@ -70,9 +66,7 @@ Vehicle::Vehicle(const std::string vehicleIdentificationNumber, Engine engine, T
 	this->manufactureYear = manufacturerYear;
 	this->hasAccidents = hasAccidents;
 	this->noServices = noServices;
-	for (int i = 0; i < this->noServices; i++) {
-		service.push_back(service[i]);
-	}
+	std::copy(service.begin(), service.end(), std::back_inserter(this->service));
 	this->color = new char[strlen(color) + 1];
 	strcpy_s(this->color, strlen(color) + 1, color);
 	this->price = price;
@@ -154,6 +148,7 @@ void Vehicle::setServices(int noServices, std::string* services) {
 void Vehicle::addService(std::string newService) {
 	if (newService.size() > 5) {
 		this->service.push_back(newService);
+		this->noServices++;
 	}
 	else {
 		throw std::exception("Invalid service description for adding it to the service book");
@@ -197,8 +192,14 @@ void Vehicle::checkSystems() {
 
 void operator<<(std::ostream& out, const Vehicle& v)
 {
+	out << std::endl << "Brand: " << v.brand;
+	out << std::endl << "Model: " << v.model;
+	out << std::endl << "Year: " << v.manufactureYear;
+	out << std::endl << "Kilometers done: " << v.kilometers;
 	out << std::endl << "Identification number: " << v.vehicleIdentificationNumber;
-	out << std::endl << v.engine;
+	out << std::endl << "-----------------------------------------------";
+	out << v.engine;
+	out << std::endl << "-----------------------------------------------";
 	out << std::endl << "Transmission is: ";
 	switch (v.transmission)
 	{
@@ -230,15 +231,11 @@ void operator<<(std::ostream& out, const Vehicle& v)
 		break;
 	}
 	out << std::endl << "It has: " << v.noWheels << " wheels";
-	out << std::endl << "Kilometers done: " << v.kilometers;
-	out << std::endl << "Brand: " << v.brand;
-	out << std::endl << "Model: " << v.model;
-	out << std::endl << "Year: " << v.manufactureYear;
 	v.hasAccidents == true ? out << std::endl << "Had accident" : out << std::endl << "No accident";
 	out << std::endl << "It has " << v.noServices << " services done: ";
 	for (int i = 0; i < v.noServices; i++) {
 		out << std::endl << i + 1 << ". " << v.service[i];
 	}
 	out << std::endl << "Color: " << v.color;
-	out << std::endl << "Price: " << v.price;
+	out << std::endl << "Price: " << v.price << "$" << std::endl << "-----------------------------------------------";
 }
