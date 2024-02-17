@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <fstream>
 
 enum Fuel {PETROL,DIESEL};
 
@@ -61,6 +62,12 @@ public:
 
 	//operator<<
 	friend void operator<<(std::ostream& out,const Engine& e);
+
+	//operator>>
+	friend void operator>>(std::istream& in, Engine& e);
+
+	//read from text file
+	void readFromTextFile(std::ifstream& in);
 
 };
 

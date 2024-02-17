@@ -103,6 +103,26 @@ bool Engine::operator==(const Engine& e) {
 	return this->torque == e.torque;
 }
 
+void Engine::readFromTextFile(std::ifstream& in)
+{
+	in >> this->horsePower;
+
+	in >> this->torque;
+
+	in >> this->noCylinders;
+
+	in >> this->capacity;
+
+	int aux;
+
+	in >> aux;
+	aux == 1 ? this->isHybrid = true : this->isHybrid = false;
+	in >> this->series;
+
+	in >> aux;
+	this->fuel = static_cast<Fuel>(aux);
+}
+
 void operator<<(std::ostream& out,const Engine& e)
 {
 	out << std::endl << "Engine puts out: " << e.horsePower << "hp and " << e.torque << "nM of torque";
@@ -117,6 +137,35 @@ void operator<<(std::ostream& out,const Engine& e)
 	out << std::endl << "Engine series: " << e.series;
 	out << std::endl << "It's running using: ";
 	e.fuel == 0 ? out << "petrol fuel" : out << "diesel fuel";
+}
+
+void operator>>(std::istream& in, Engine& e)
+{
+	std::cout << "Enter horsepower: ";
+	in >> e.horsePower;
+
+	std::cout << "Enter torque: ";
+	in >> e.torque;
+
+	std::cout << "Enter number of cylinders: ";
+	in >> e.noCylinders;
+
+	std::cout << "Enter capacity: ";
+	in >> e.capacity;
+
+	int aux;
+	std::cout << "Is it a hybrid? (1 for true, 0 for false): ";
+	in >> aux;
+	aux == 1 ? e.isHybrid = true : e.isHybrid = false;
+
+
+	std::cout << "Enter series: ";
+	in >> e.series;
+
+	std::cout << std::endl << "Enter fuel type: (0 for PETROL, 1 for DIESEL)";
+	int fuelType;
+	in >> fuelType;
+	e.fuel = static_cast<Fuel>(fuelType);
 }
 
 

@@ -140,5 +140,13 @@ int main() {
 	cout << endl << endl;
 	cout << c1;
 
+
+	std::ifstream eng("Engine.txt", ios::in);
+	if (!eng.is_open()) {
+		std::cerr << "Error opening file: Engine.txt" << std::endl;
+	}
+	Engine e4;
+	e4.readFromTextFile(eng);
+	cout << endl << endl << e4;
 	return 0;
 }
