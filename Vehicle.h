@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include <vector>
 #include <algorithm>
+#include <fstream>
 
 enum Transmission {MANUAL,SEMI_AUTOMATIC, AUTOMATIC};
 
@@ -32,6 +33,7 @@ public:
 
 	//Construtors
 	Vehicle();
+	Vehicle(const std::string vehicleIdentificationNumber);
 	Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::vector<std::string> service, const char* color, float price);
 	
 	//Destructor
@@ -79,14 +81,16 @@ public:
 
 	void setPrice(float newPrice);
 
-	virtual void Start() = 0;
+	virtual void Start();
 
-	virtual void Stop() = 0;
+	virtual void Stop();
 
-	virtual void checkSystems() = 0;
+	virtual void checkSystems();
 
 	//operator<<
 	friend void operator<<(std::ostream& out, const Vehicle& v);
+
+	void readVehicleFromTxtFile(std::ifstream& in);
 
 };
 

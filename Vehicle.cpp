@@ -14,6 +14,8 @@ Vehicle::~Vehicle()
 	}
 }
 
+Vehicle::Vehicle(const std::string vehicleIdentificationNumber) :vehicleIdentificationNumber(vehicleIdentificationNumber){}
+
 Vehicle::Vehicle(const Vehicle& v)
 {
 	this->engine = v.engine;
@@ -190,6 +192,52 @@ void Vehicle::checkSystems() {
 	std::cout << std::endl << "Systems are working properly. You are ready to start your trip!";
 }
 
+void Vehicle::readVehicleFromTxtFile(std::ifstream& in)
+{
+	this->engine.readFromTextFile(in);
+	
+	int aux;
+
+	in >> aux;
+	this->transmission = static_cast<Transmission>(aux);
+
+	in >> aux;
+	this->driveTrain = static_cast<DriveTrain>(aux);
+
+	in >> this->noWheels;
+
+	in >> this->kilometers;
+	
+	in.ignore();
+	getline(in, this->brand);
+
+	getline(in, this->model);
+
+	in >> this->manufactureYear;
+
+	in >> std::boolalpha >> hasAccidents;
+
+	in >> this->noServices;
+
+	in.ignore();
+	std::string temp;
+	for (int i = 0; i < this->noServices; i++) {
+		getline(in, temp);
+		this->service.push_back(temp);
+	}
+
+	char buffer[50];
+	in.getline(buffer, 50);
+	if (this->color != nullptr) {
+		delete[]this->color;
+		this->color = nullptr;
+	}
+	this->color = new char[strlen(buffer) + 1];
+	strcpy_s(this->color, strlen(buffer) + 1, buffer);
+
+	in >> this->price;
+}
+
 void operator<<(std::ostream& out, const Vehicle& v)
 {
 	out << std::endl << "Brand: " << v.brand;
@@ -239,3 +287,5 @@ void operator<<(std::ostream& out, const Vehicle& v)
 	out << std::endl << "Color: " << v.color;
 	out << std::endl << "Price: " << v.price << "$" << std::endl << "-----------------------------------------------";
 }
+
+

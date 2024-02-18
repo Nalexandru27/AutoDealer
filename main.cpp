@@ -135,7 +135,7 @@ int main() {
 	//	cout << v1[i] << " ";
 	//}
 	
-	Car c1("AB141ASFK", e1, AUTOMATIC, FOUR_WHEEL_DRIVE, 4, 60000, "Mercedes", "Class C", 2015, true, 2,{"Oil change", "Brakes change"}, "Green elmerald", 16999.99, COUPE, { "Spoiler","19's wheels" }, { "Black leather","Electric seats" }, { {3053,"Apple Car Play Wifi"},{4210,"Security Alarm"} });
+	/*Car c1("AB141ASFK", e1, AUTOMATIC, FOUR_WHEEL_DRIVE, 4, 60000, "Mercedes", "Class C", 2015, true, 2,{"Oil change", "Brakes change"}, "Green elmerald", 16999.99, COUPE, { "Spoiler","19's wheels" }, { "Black leather","Electric seats" }, { {3053,"Apple Car Play Wifi"},{4210,"Security Alarm"} });
 	
 	cout << endl << endl;
 	cout << c1;
@@ -147,6 +147,14 @@ int main() {
 	}
 	Engine e4;
 	e4.readFromTextFile(eng);
-	cout << endl << endl << e4;
+	cout << endl << endl << e4;*/
+
+	Vehicle v1("JMD1KMF428AUYV4");
+	ifstream inFile("VehicleInputFile.txt");
+	if (!inFile.is_open()) {
+		std::cerr << "Error opening file: Engine.txt" << std::endl;
+	}
+	v1.readVehicleFromTxtFile(inFile);
+	cout << v1;
 	return 0;
 }
