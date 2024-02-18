@@ -3,7 +3,7 @@
 
 int Car::NO_CAR = 0;
 
-Car::Car() : Vehicle() { 
+Car::Car(const std::string vehicleIdentificationNumber) : Vehicle(vehicleIdentificationNumber) {
 	Car::NO_CAR++; 
 };
 
@@ -106,6 +106,42 @@ void Car::checkSystems() {
 	std::cout << std::endl << "Systems are working properly. You are ready to start your trip!";
 }
 
+void Car::readCarDataFromTxtFile(std::ifstream& in)
+{
+	readVehicleFromTxtFile(in);
+
+	int aux;
+
+	in >> aux;
+	this->category = static_cast<Category>(aux);
+
+	int limit;
+	std::string s;
+
+	in >> limit;
+	in.ignore();
+	for (int i = 0; i < limit; i++) {
+		getline(in, s);
+		this->exteriorFeatures.push_back(s);
+	}
+
+	in >> limit;
+	in.ignore();
+	for (int i = 0; i < limit; i++) {
+		getline(in, s);
+		this->interiorFeatures.push_back(s);
+	}
+
+	in >> limit;
+	int key;
+	for (int i = 0; i < limit; i++) {
+		in >> key;
+		in.ignore();
+		getline(in, s);
+		this->options[key] = s;
+	}
+}
+
 void operator<<(std::ostream& out, const Car& c)
 {
 	out << static_cast<const Vehicle&>(c);
@@ -135,6 +171,7 @@ void operator<<(std::ostream& out, const Car& c)
 	default:
 		break;
 	}
+	out << std::endl;
 	out << std::endl << "Exterior features: ";
 	for (size_t i = 0; i < c.exteriorFeatures.size(); i++) {
 		out << std::endl << i + 1 << ". " << c.exteriorFeatures[i];
@@ -147,7 +184,7 @@ void operator<<(std::ostream& out, const Car& c)
 	out << std::endl << "-----------------------------------------------";
 	out << std::endl << "Options: ";
 	for (const auto& option : c.options) {
-		out << std::endl << option.first << ": " << option.second;
+		out << std::endl <<"Code " << option.first << ": " << option.second;
 	}
 	out << std::endl;
 }

@@ -15,8 +15,7 @@ public:
 	static int NO_CAR;
 
 	//constructors
-	Car();
-
+	Car(const std::string vehicleIdentificationNumber);
 	Car(const std::string vehicleIdentificationNumber, 
 		Engine engine, 
 		Transmission transmission, 
@@ -74,6 +73,7 @@ public:
 	//operator<<
 	friend void operator<<(std::ostream& out, const Car& c);
 
-	//operator cast
+	//read data from text file
+	void readCarDataFromTxtFile(std::ifstream& in);
 };
 

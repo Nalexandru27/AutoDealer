@@ -3,9 +3,6 @@
 
 float Vehicle::MIN_PRICE = 4999.99;
 
-Vehicle::Vehicle(){}
-
-
 Vehicle::~Vehicle()
 {
 	if (this->color != nullptr) {

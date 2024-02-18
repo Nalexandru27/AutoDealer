@@ -1,0 +1,34 @@
+145
+360
+5
+2.0
+0
+KAFN251JNLDE041
+1
+2
+0
+4
+78900
+Range Rover
+Voque 4
+2014
+false
+3
+Oil change
+Brake change
+Repaint front bumper
+Baby Blue
+16983.89
+3
+2
+AMG Bumper
+AMG Spoiler
+3
+Carbon Fiber Seats
+Diamond Gear Changer
+Piano Black Console
+2
+4391
+Security Alarm
+4721
+SOS system

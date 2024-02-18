@@ -32,7 +32,6 @@ public:
 	static float MIN_PRICE;
 
 	//Construtors
-	Vehicle();
 	Vehicle(const std::string vehicleIdentificationNumber);
 	Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::vector<std::string> service, const char* color, float price);
 	
@@ -81,11 +80,11 @@ public:
 
 	void setPrice(float newPrice);
 
-	virtual void Start();
+	virtual void Start() = 0;
 
-	virtual void Stop();
+	virtual void Stop() = 0;
 
-	virtual void checkSystems();
+	virtual void checkSystems() = 0;
 
 	//operator<<
 	friend void operator<<(std::ostream& out, const Vehicle& v);

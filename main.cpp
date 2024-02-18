@@ -149,12 +149,17 @@ int main() {
 	e4.readFromTextFile(eng);
 	cout << endl << endl << e4;*/
 
-	Vehicle v1("JMD1KMF428AUYV4");
-	ifstream inFile("VehicleInputFile.txt");
-	if (!inFile.is_open()) {
-		std::cerr << "Error opening file: Engine.txt" << std::endl;
-	}
-	v1.readVehicleFromTxtFile(inFile);
-	cout << v1;
+	//Vehicle v1("JMD1KMF428AUYV4");
+	//ifstream inFile("VehicleInputFile.txt");
+	//if (!inFile.is_open()) {
+	//	std::cerr << "Error opening file: Engine.txt" << std::endl;
+	//}
+	//v1.readVehicleFromTxtFile(inFile);
+	//cout << v1;
+
+	Car c1("J1U831MBAU15AKN");
+	ifstream file("CarData.txt");
+	c1.readCarDataFromTxtFile(file);
+	cout << c1;
 	return 0;
 }
