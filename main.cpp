@@ -157,9 +157,27 @@ int main() {
 	//v1.readVehicleFromTxtFile(inFile);
 	//cout << v1;
 
-	Car c1("J1U831MBAU15AKN");
+	/*Car c1("J1U831MBAU15AKN");
 	ifstream file("CarData.txt");
 	c1.readCarDataFromTxtFile(file);
-	cout << c1;
+	cout << c1;*/
+	
+	string temp;
+	ifstream file("CarData.txt");
+	std::vector<Car> cars;
+	for (int i = 0; i < 3; i++) {
+		file >> temp;
+		Car c1(temp);
+		c1.readCarDataFromTxtFile(file);
+		cars.push_back(c1);
+	}
+	
+	/*for (auto it = cars.begin(); it != cars.end(); ++it) {
+		cout << (*it);
+	}*/
+
+	file.close();
+	ofstream File("CarReport.txt", ios::out);
+	Car::getReport(File, cars);
 	return 0;
 }

@@ -142,6 +142,56 @@ void Car::readCarDataFromTxtFile(std::ifstream& in)
 	}
 }
 
+void Car::getReport(std::ofstream& out, const std::vector<Car> cars)
+{
+	std::vector<Car>::const_iterator it;
+	for (it = cars.begin(); it != cars.end(); ++it) {
+		out << static_cast<const Vehicle&>(*it);
+		out << std::endl << "Category/type: ";
+		switch ((*it).category)
+		{
+		case 0:
+			out << "CONVERTIBLE";
+			break;
+		case 1:
+			out << "SMALL";
+			break;
+		case 2:
+			out << "WAGON";
+			break;
+		case 3:
+			out << "COUPE";
+			break;
+		case 4:
+			out << "SUV";
+			break;
+		case 5:
+			out << "VAN";
+			break;
+		case 6:
+			out << "LIMOUSIUNE";
+		default:
+			break;
+		}
+		out << std::endl;
+		out << std::endl << "Exterior features: ";
+		for (size_t i = 0; i < (*it).exteriorFeatures.size(); i++) {
+			out << std::endl << i + 1 << ". " << (*it).exteriorFeatures[i];
+		}
+		out << std::endl << "-----------------------------------------------";
+		out << std::endl << "Interior features: ";
+		for (size_t i = 0; i < (*it).interiorFeatures.size(); i++) {
+			out << std::endl << i + 1 << ". " << (*it).interiorFeatures[i];
+		}
+		out << std::endl << "-----------------------------------------------";
+		out << std::endl << "Options: ";
+		for (const auto& option : (*it).options) {
+			out << std::endl << "Code " << option.first << ": " << option.second;
+		}
+		out << std::endl;
+	}
+}
+
 void operator<<(std::ostream& out, const Car& c)
 {
 	out << static_cast<const Vehicle&>(c);

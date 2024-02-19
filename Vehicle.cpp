@@ -13,14 +13,14 @@ Vehicle::~Vehicle()
 
 Vehicle::Vehicle(const std::string vehicleIdentificationNumber) :vehicleIdentificationNumber(vehicleIdentificationNumber){}
 
-Vehicle::Vehicle(const Vehicle& v)
+Vehicle::Vehicle(const Vehicle& v):vehicleIdentificationNumber(v.vehicleIdentificationNumber)
 {
 	this->engine = v.engine;
 	this->transmission = v.transmission;
 	this->driveTrain = v.driveTrain;
 	this->noWheels = v.noWheels;
 	this->kilometers = v.kilometers;
-	this->brand = brand;
+	this->brand = v.brand;
 	this->model = v.model;
 	this->manufactureYear = v.manufactureYear;
 	this->hasAccidents = v.hasAccidents;
@@ -54,13 +54,14 @@ Vehicle& Vehicle::operator=(const Vehicle& v)
 	return *this;
 }
 
-Vehicle::Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, const std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::vector<std::string> service, const char* color, float price):vehicleIdentificationNumber(vehicleIdentificationNumber),brand(brand)
+Vehicle::Vehicle(const std::string vehicleIdentificationNumber, Engine engine, Transmission transmission, DriveTrain driveTrain, int noWheels, int kilometers, const std::string brand, std::string model, int manufacturerYear, bool hasAccidents, int noServices, std::vector<std::string> service, const char* color, float price):vehicleIdentificationNumber(vehicleIdentificationNumber)
 {
 	this->engine = engine;
 	this->transmission = transmission;
 	this->driveTrain = driveTrain;
 	this->noWheels = noWheels;
 	this->kilometers = kilometers;
+	this->brand = brand;
 	this->model = model;
 	this->manufactureYear = manufacturerYear;
 	this->hasAccidents = hasAccidents;
@@ -207,7 +208,7 @@ void Vehicle::readVehicleFromTxtFile(std::ifstream& in)
 	
 	in.ignore();
 	getline(in, this->brand);
-
+	
 	getline(in, this->model);
 
 	in >> this->manufactureYear;
@@ -281,7 +282,9 @@ void operator<<(std::ostream& out, const Vehicle& v)
 	for (int i = 0; i < v.noServices; i++) {
 		out << std::endl << i + 1 << ". " << v.service[i];
 	}
-	out << std::endl << "Color: " << v.color;
+	if (v.color != nullptr) {
+		out << std::endl << "Color: " << v.color;
+	}	
 	out << std::endl << "Price: " << v.price << "$" << std::endl << "-----------------------------------------------";
 }
 

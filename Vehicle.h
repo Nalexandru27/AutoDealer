@@ -89,7 +89,9 @@ public:
 	//operator<<
 	friend void operator<<(std::ostream& out, const Vehicle& v);
 
+	//read from text file
 	void readVehicleFromTxtFile(std::ifstream& in);
 
+	//write to text file
 };
 
