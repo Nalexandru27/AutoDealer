@@ -78,5 +78,6 @@ public:
 
 	//generate a report with all the cars, display readble into a text file
 	static void getReport(std::ofstream& out, const std::vector<Car> cars);
+
 };
 

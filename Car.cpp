@@ -145,7 +145,9 @@ void Car::readCarDataFromTxtFile(std::ifstream& in)
 void Car::getReport(std::ofstream& out, const std::vector<Car> cars)
 {
 	std::vector<Car>::const_iterator it;
+	int i = 0;
 	for (it = cars.begin(); it != cars.end(); ++it) {
+		out << "*------------- CAR " << ++i << " STATS -------------*" << std::endl;
 		out << static_cast<const Vehicle&>(*it);
 		out << std::endl << "Category/type: ";
 		switch ((*it).category)
@@ -188,7 +190,7 @@ void Car::getReport(std::ofstream& out, const std::vector<Car> cars)
 		for (const auto& option : (*it).options) {
 			out << std::endl << "Code " << option.first << ": " << option.second;
 		}
-		out << std::endl;
+		out << std::endl << std::endl << std::endl;
 	}
 }
 

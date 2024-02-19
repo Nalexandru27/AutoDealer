@@ -1,3 +1,4 @@
+*------------- CAR 1 STATS -------------*
 
 Brand: Mercedes Benz
 Model: Class A
@@ -38,6 +39,9 @@ Options:
 Code 4391: Security Alarm
 Code 4721: SOS system
 
+
+*------------- CAR 2 STATS -------------*
+
 Brand: Mercedes Benz
 Model: Class c
 Year: 2016
@@ -77,6 +81,9 @@ Options:
 Code 4391: Security Alarm
 Code 4721: SOS system
 
+
+*------------- CAR 3 STATS -------------*
+
 Brand: Mercedes Benz
 Model: Class E
 Year: 2012
@@ -115,3 +122,5 @@ Interior features:
 Options: 
 Code 4391: Security Alarm
 Code 4721: SOS system
+
+
