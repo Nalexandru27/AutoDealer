@@ -7,30 +7,28 @@ class AutoDealer
 {
 private:
 	std::string name = "";
-	const char* address;
+	const std::string address;
 	bool hasService = false;
 	int locationSize = 0;
 	int parkingSlots = 0;
 	std::string schedule = "";
 	int chargingStations = 0;
 	int rentPerMonth = 0;
-	int noEmployees = 0;
 	std::vector<Employee>employees;
 	std::vector<Car> cars;
 public:
 	//default constructor
-	AutoDealer(const char* address);
+	AutoDealer(const std::string);
 
 	//constructor
 	AutoDealer(std::string name, 
-		const char* address, 
+		const std::string address, 
 		bool hasService, 
 		int locationSize, 
 		int parkingSlots, 
 		std::string schedule, 
 		int chargingStations, 
 		int rentPerMonth, 
-		int noEmployees,
 		std::vector<Employee>employees, 
 		std::vector<Car> cars);
 
@@ -38,7 +36,7 @@ public:
 	AutoDealer(const AutoDealer& source);
 
 	//operator=
-	AutoDealer operator=(const AutoDealer& source);
+	AutoDealer& operator=(const AutoDealer& source);
 
 	//destructor
 	~AutoDealer();
@@ -46,7 +44,7 @@ public:
 	//getters
 	std::string getName();
 
-	const char* getAddress();
+	const std::string getAddress();
 
 	bool getHasService();
 
@@ -60,18 +58,16 @@ public:
 
 	int getRentPerMonth();
 
-	int getNoEmployees();
+	const std::vector<Employee> getEmployees() const;
 
-	std::vector<Employee> getEmployees();
-
-	std::vector<Car> getCars();
+	const std::vector<Car> getCars() const;
 
 	//setters
 	void setName(std::string newName);
 
-	void hasService();
+	void ServiceTrue();
 
-	void hasNoService();
+	void ServiceFalse();
 
 	void setLocationSize(int newSize);
 
@@ -83,20 +79,20 @@ public:
 
 	void setRentPerMonth(int newRentPerMonth);
 
-	void setEmployees(int noEmployees, std::vector<Employee> employees);
+	void setEmployees(std::vector<Employee> employees);
 
-	void setCars(int noCars, std::vector<Car> cars);
+	void setCars(std::vector<Car> cars);
 
 	//add a new car
 	void addCar(const Car& car);
 
 	//remove car (sold)
-	void removeCar(int index);
+	void removeCar(size_t index);
 
 	//add new employee
 	void addEmployee(const Employee& employee);
 
 	//remove employee (fired)
-	void removeEmployee(int id);
+	void removeEmployee(size_t id);
 };
 

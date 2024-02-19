@@ -23,7 +23,7 @@ and for the cars. The app should allow the user to add/delete a new employee, ad
 #include "Vehicle.h"
 #include <vector>
 #include "Car.h"
-
+#include "AutoDealer.h"
 
 using namespace std;
 
@@ -55,9 +55,7 @@ int main() {
 	}
 	else {
 		person1.writePersonToTextFile(textFile);
-	}*/
-	Employee em1("John Doe", 25, true, 2590.89, "sales", "sales representative", "Taking care of our customers needs and presents the available options", false, 2, new string[2]{ "cashier","help desk support" }, 2, new string[2]{ "romanian","english" }, 130);
-	
+	}*/	
 	/*ofstream oBinFile("Employees.bin", ios::binary | ios::out);
 	oBinFile << em1;
 	oBinFile.close();
@@ -161,10 +159,12 @@ int main() {
 	ifstream file("CarData.txt");
 	c1.readCarDataFromTxtFile(file);
 	cout << c1;*/
-	
+	Employee em1("John Doe", 25, true, 2590.89, "sales", "sales representative", "Taking care of our customers needs and presents the available options", false, 2, new string[2]{ "cashier","help desk support" }, 2, new string[2]{ "romanian","english" }, 130);
+
 	string temp;
 	ifstream file("CarData.txt");
 	std::vector<Car> cars;
+
 	for (int i = 0; i < 3; i++) {
 		file >> temp;
 		Car c1(temp);
@@ -172,12 +172,20 @@ int main() {
 		cars.push_back(c1);
 	}
 	
-	/*for (auto it = cars.begin(); it != cars.end(); ++it) {
-		cout << (*it);
-	}*/
-
 	file.close();
+
 	ofstream File("CarReport.txt", ios::out);
 	Car::getReport(File, cars);
+	File.close();
+
+	vector<Employee> employees;
+	employees.push_back(em1);
+	
+	try {
+		AutoDealer a1("G C AutoDealer", "Splaiul Unirii 25", true, 10000, 25, "9:00-19:00", 10, 15000, employees, cars);
+	}
+	catch (exception e) {
+		cout << e.what();
+	}
 	return 0;
 }

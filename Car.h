@@ -34,6 +34,9 @@ public:
 		const std::vector<std::string>& exteriorFeatures,
 		const std::vector<std::string>& interiorFeatures,
 		const std::map<int, std::string>& carOptions);
+
+	//operator=
+	Car& operator=(const Car& c);
 	
 	//copy constructor
 	Car(const Car& c);

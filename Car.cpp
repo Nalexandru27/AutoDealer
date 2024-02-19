@@ -20,6 +20,15 @@ Car::Car(const std::string vehicleIdentificationNumber,Engine engine,Transmissio
 	Car::NO_CAR++;
 }
 
+Car& Car::operator=(const Car& c)
+{
+	this->category = c.category;
+	this->exteriorFeatures = c.exteriorFeatures;
+	this->interiorFeatures = c.interiorFeatures;
+	this->options = c.options;
+	return *this;
+}
+
 Car::Car(const Car& c) :
 	Vehicle(c),
 	category(c.category),
