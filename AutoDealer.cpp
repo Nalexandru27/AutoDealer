@@ -111,9 +111,24 @@ void AutoDealer::addEmployee(const Employee& employee)
 	this->employees.push_back(employee);
 }
 
+void AutoDealer::displayTxtFile(std::ofstream& out)
+{
+	out << "|  Welcome to " << this->name << " AutoDealer  |" << std::endl;
+	out << std::endl << "Our address is: " << this->address;
+	this->hasService == true ? out << std::endl << "We offer auto service" : out << std::endl << "We don't have a service auto";
+	out << std::endl << "This location is: " << this->locationSize << " meters squared";
+	out << std::endl << "This location has: " << this->parkingSlots << " parking slots";
+	out << std::endl << "Schedule hours is: " << this->schedule;
+	out << std::endl << "This location has: " << this->chargingStations << " chargings stations for electric cars";
+	out << std::endl << "Rent per month is: " << this->rentPerMonth << " euro";
+	Employee::createTextFileReport(out, employees);
+	Car::getReport(out, cars);
+	out << std::endl << std::endl;
+}
+
 AutoDealer::AutoDealer(const std::string):address(address) {}
 
-AutoDealer::AutoDealer(std::string name, const std::string, bool hasService, int locationSize, int parkingSlots, std::string schedule, int chargingStations, int rentPerMonth, std::vector<Employee> employees, std::vector<Car> cars):address(address)
+AutoDealer::AutoDealer(std::string name, const std::string address, bool hasService, int locationSize, int parkingSlots, std::string schedule, int chargingStations, int rentPerMonth, std::vector<Employee> employees, std::vector<Car> cars):address(address)
 {
 	setName(name);
 	this->hasService = hasService;

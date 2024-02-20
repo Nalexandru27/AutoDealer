@@ -94,5 +94,8 @@ public:
 
 	//remove employee (fired)
 	void removeEmployee(size_t id);
+
+	//generate report into a text file
+	void displayTxtFile(std::ofstream& out);
 };
 

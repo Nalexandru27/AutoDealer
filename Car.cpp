@@ -155,6 +155,7 @@ void Car::getReport(std::ofstream& out, const std::vector<Car> cars)
 {
 	std::vector<Car>::const_iterator it;
 	int i = 0;
+	out << std::endl << "CARS AVAILABLE: " << std::endl << std::endl;
 	for (it = cars.begin(); it != cars.end(); ++it) {
 		out << "*------------- CAR " << ++i << " STATS -------------*" << std::endl;
 		out << static_cast<const Vehicle&>(*it);

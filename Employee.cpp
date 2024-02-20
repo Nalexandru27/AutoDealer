@@ -456,28 +456,29 @@ void Employee::readEmployeeFromTextFile(std::ifstream& f) {
 	f.ignore();
 }
 
-void Employee::createTextFileReport(std::ofstream& g, int noEmployees, Employee* employeeArray)
+void Employee::createTextFileReport(std::ofstream& g,const std::vector<Employee> employees)
 {
-	if (employeeArray != nullptr && noEmployees > 0) {
-		for (int i = 0; i < noEmployees; i++) {
-			g << "Employee " << i + 1 << ": " << employeeArray[i].name << "\n";
-			g << "Age: " << employeeArray[i].age << "\n";
-			employeeArray[i].isMarried ? g << "Is married\n": g << "Is not married\n";
-			g << "Salary: " << employeeArray[i].salary << "\n";
-			g << "Working in " << employeeArray[i].department << " department" << "\n";
-			g << "Job profile: " << employeeArray[i].job << "\n";
-			g << "Job responsabilities: " << employeeArray[i].jobDescription << "\n";
-			employeeArray[i].isManager ? g << "Is manager\n" : g << "Is not manager\n";
-			g << "Number of previous working experiences: " << employeeArray[i].noPreviousWorkingExperience << "\n";
-			for (int j = 0; j < employeeArray[i].noPreviousWorkingExperience; j++) {
-				g << j+1 << ". " << employeeArray[i].experience[j] << "\n";
+	g << std::endl << std::endl << "------------Employee List-------------" << std::endl << std::endl;
+	if (employees.size()>0) {
+		for (int i = 0; i < employees.size(); i++) {
+			g << "Employee " << i + 1 << ": " << employees[i].name << "\n";
+			g << "Age: " << employees[i].age << "\n";
+			employees[i].isMarried ? g << "Is married\n": g << "Is not married\n";
+			g << "Salary: " << employees[i].salary << "\n";
+			g << "Working in " << employees[i].department << " department" << "\n";
+			g << "Job profile: " << employees[i].job << "\n";
+			g << "Job responsabilities: " << employees[i].jobDescription << "\n";
+			employees[i].isManager ? g << "Is manager\n" : g << "Is not manager\n";
+			g << "Number of previous working experiences: " << employees[i].noPreviousWorkingExperience << "\n";
+			for (int j = 0; j < employees[i].noPreviousWorkingExperience; j++) {
+				g << j+1 << ". " << employees[i].experience[j] << "\n";
 			}
-			g << "Number of languages known: " << employeeArray[i].noLanguagesKnown << "\n";
-			for (int k = 0; k < employeeArray[i].noLanguagesKnown; k++) {
-				g << "- " << employeeArray[i].languagesKnown[k] << "\n";
+			g << "Number of languages known: " << employees[i].noLanguagesKnown << "\n";
+			for (int k = 0; k < employees[i].noLanguagesKnown; k++) {
+				g << "- " << employees[i].languagesKnown[k] << "\n";
 			}
-			g << "Monthly bonus: " << employeeArray[i].bonus << "\n";
-			g << "\n\n";
+			g << "Monthly bonus: " << employees[i].bonus << "\n";
+			g << "\n";
 		}
 	}
 	else {

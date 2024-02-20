@@ -75,5 +75,7 @@ public:
 	//read from text file
 	void readFromTextFile(std::ifstream& in);
 
+	//write data to text file
+
 };
 

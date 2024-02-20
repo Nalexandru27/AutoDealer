@@ -2,7 +2,7 @@
 #include "Person.h"
 #include <string>
 #include "ClassUtils.h"
-
+#include <vector>
 class Employee:public Person
 {
 private:
@@ -52,7 +52,7 @@ public:
 	//read data from keyboard
 	friend std::istream& operator>>(std::istream& in, Employee& e);
 
-	//write to binary filesa
+	//write to binary files
 	friend std::ofstream& operator<<(std::ofstream& outF, const Employee& e);
 
 	//read from binary file
@@ -65,7 +65,7 @@ public:
 	void readEmployeeFromTextFile(std::ifstream& f);
 
 	//create a report of employees to a text file similiar with display info on the screen
-	static void createTextFileReport(std::ofstream& g, int noEmployees, Employee* employeeArray);
+	static void createTextFileReport(std::ofstream& g,const std::vector<Employee> employees);
 
 };
 

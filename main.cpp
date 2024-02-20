@@ -198,7 +198,11 @@ int main() {
 
 		vector<Employee> employees;
 		employees.push_back(em1);
-		AutoDealer a1("G C AutoDealer", "Splaiul Unirii 25", true, 10000, 25, "9:00-19:00", 10, 15000, employees, cars);
-	
+		AutoDealer a1("G&C AutoDealer", "Splaiul Unirii 25", true, 10000, 25, "9:00-19:00", 10, 15000, employees, cars);
+		
+		ofstream outF("AutoDealer1.txt", ios::out);
+		a1.displayTxtFile(outF);
+
+
 	return 0;
 }
