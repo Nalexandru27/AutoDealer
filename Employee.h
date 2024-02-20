@@ -10,7 +10,7 @@ private:
 	float salary = 0.0f;
 	char* department = nullptr;
 	char* job = nullptr;
-	std::string jobDescription = "";
+	std::string jobDescription = " ";
 	bool isManager = false;
 	int noPreviousWorkingExperience = 0;
 	std::string* experience = nullptr;
@@ -29,6 +29,9 @@ public:
 
 	//destructor
 	~Employee();
+
+	//move constructor
+	Employee(Employee&& e) noexcept;
 
 	//setters
 	void setSalary(float salary);

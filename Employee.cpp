@@ -72,6 +72,24 @@ Employee::~Employee()
 	}
 }
 
+Employee::Employee(Employee&& e) noexcept :
+	salary(e.salary),
+	department(std::move(e.department)),
+	job(std::move(e.job)),
+	jobDescription(e.jobDescription),
+	isManager(e.isManager),
+	noPreviousWorkingExperience(e.noPreviousWorkingExperience),
+	experience(std::move(e.experience)),
+	noLanguagesKnown(e.noLanguagesKnown),
+	languagesKnown(std::move(e.languagesKnown)),
+	bonus(e.bonus) {
+	
+	this->name = e.name;
+	this->age = e.age;
+	this->isMarried = e.isMarried;
+
+}
+
 void Employee::setSalary(float salary)
 {
 	if (salary > 0) {
@@ -162,7 +180,6 @@ void Employee::setLanguagesKnown(int value, std::string* languagesKnown)
 		for (int i = 0; i < value; i++) {
 			this->languagesKnown[i] = languagesKnown[i];
 		}
-		delete[] languagesKnown;
 		this->noLanguagesKnown = value;
 	}
 	else {

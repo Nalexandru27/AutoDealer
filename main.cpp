@@ -159,7 +159,7 @@ int main() {
 	ifstream file("CarData.txt");
 	c1.readCarDataFromTxtFile(file);
 	cout << c1;*/
-	Employee em1("John Doe", 25, true, 2590.89, "sales", "sales representative", "Taking care of our customers needs and presents the available options", false, 2, new string[2]{ "cashier","help desk support" }, 2, new string[2]{ "romanian","english" }, 130);
+	/*Employee em1("John Doe", 25, true, 2590.89, "sales", "sales representative", "Taking care of our customers needs and presents the available options", false, 2, new string[2]{ "cashier","help desk support" }, 2, new string[2]{ "romanian","english" }, 130);
 
 	string temp;
 	ifstream file("CarData.txt");
@@ -179,13 +179,26 @@ int main() {
 	File.close();
 
 	vector<Employee> employees;
-	employees.push_back(em1);
+	employees.push_back(em1);*/
 	
-	try {
+		Employee em1("John Doe", 25, true, 2590.89, "sales", "sales representative", "Taking care of our customers needs and presents the available options", false, 2, new string[2]{ "cashier","help desk support" }, 2, new string[2]{ "romanian","english" }, 130);
+		
+		string temp;
+		ifstream file("CarData.txt");
+		std::vector<Car> cars;
+
+		for (int i = 0; i < 3; i++) {
+			file >> temp;
+			Car c1(temp);
+			c1.readCarDataFromTxtFile(file);
+			cars.push_back(c1);
+		}
+
+		file.close();
+
+		vector<Employee> employees;
+		employees.push_back(em1);
 		AutoDealer a1("G C AutoDealer", "Splaiul Unirii 25", true, 10000, 25, "9:00-19:00", 10, 15000, employees, cars);
-	}
-	catch (exception e) {
-		cout << e.what();
-	}
+	
 	return 0;
 }

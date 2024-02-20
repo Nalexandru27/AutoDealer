@@ -27,6 +27,12 @@ public:
 
 	//operator=
 	Engine& operator=(const Engine& e);
+	
+	//Copy constructor
+	Engine(const Engine& e);
+
+	//Move constructor
+	Engine(Engine&& e) noexcept;
 
 	//getters
 	int getHorsePower();

@@ -79,8 +79,10 @@ public:
 	//read data from text file
 	void readCarDataFromTxtFile(std::ifstream& in);
 
-	//generate a report with all the cars, display readble into a text file
+	//generate a report with all the cars, display readable into a text file
 	static void getReport(std::ofstream& out, const std::vector<Car> cars);
+
+	//write 
 
 };
 

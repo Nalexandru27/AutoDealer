@@ -41,6 +41,10 @@ public:
 	//Copy construtor
 	Vehicle(const Vehicle& v);
 
+
+	//move constructor
+	/*Vehicle(Vehicle&& v) noexcept;*/
+
 	//operator=
 	Vehicle& operator=(const Vehicle& v);
 

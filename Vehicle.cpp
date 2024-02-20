@@ -25,7 +25,8 @@ Vehicle::Vehicle(const Vehicle& v):vehicleIdentificationNumber(v.vehicleIdentifi
 	this->manufactureYear = v.manufactureYear;
 	this->hasAccidents = v.hasAccidents;
 	this->noServices = v.noServices;
-	std::copy(v.service.begin(), v.service.end(), std::back_inserter(this->service));
+	//std::copy(v.service.begin(), v.service.end(), std::back_inserter(this->service));
+	this->service = v.service;
 	this->color = new char[strlen(v.color) + 1];
 	strcpy_s(this->color, strlen(v.color) + 1, v.color);
 	this->price = v.price;
@@ -43,7 +44,8 @@ Vehicle& Vehicle::operator=(const Vehicle& v)
 	this->manufactureYear = v.manufactureYear;
 	this->hasAccidents = v.hasAccidents;
 	this->noServices = v.noServices;
-	std::copy(v.service.begin(), v.service.end(), std::back_inserter(this->service));
+	//std::copy(v.service.begin(), v.service.end(), std::back_inserter(this->service));
+	this->service = v.service;
 	if (this->color != nullptr) {
 		delete[]this->color;
 		this->color = nullptr;
@@ -66,7 +68,8 @@ Vehicle::Vehicle(const std::string vehicleIdentificationNumber, Engine engine, T
 	this->manufactureYear = manufacturerYear;
 	this->hasAccidents = hasAccidents;
 	this->noServices = noServices;
-	std::copy(service.begin(), service.end(), std::back_inserter(this->service));
+	//std::copy(service.begin(), service.end(), std::back_inserter(this->service));
+	this->service = service;
 	this->color = new char[strlen(color) + 1];
 	strcpy_s(this->color, strlen(color) + 1, color);
 	this->price = price;
@@ -81,6 +84,22 @@ Transmission Vehicle::getTransmission()
 {
 	return this->transmission;
 }
+
+//Vehicle::Vehicle(Vehicle&& v) noexcept :
+//	vehicleIdentificationNumber(v.vehicleIdentificationNumber),
+//	engine(v.engine),
+//	transmission(v.transmission),
+//	driveTrain(v.driveTrain),
+//	noWheels(v.noWheels),
+//	kilometers(v.kilometers),
+//	brand(v.brand),
+//	model(v.model),
+//	manufactureYear(v.manufactureYear),
+//	hasAccidents(v.hasAccidents),
+//	noServices(v.noServices),
+//	service(std::move(v.service)),
+//	color(std::move(v.color)),
+//	price(v.price) {}
 
 DriveTrain Vehicle::getDriveTrain()
 {

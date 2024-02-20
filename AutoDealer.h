@@ -6,12 +6,12 @@
 class AutoDealer
 {
 private:
-	std::string name = "";
-	const std::string address;
+	std::string name = " ";
+	const std::string address = "none";
 	bool hasService = false;
 	int locationSize = 0;
 	int parkingSlots = 0;
-	std::string schedule = "";
+	std::string schedule = " ";
 	int chargingStations = 0;
 	int rentPerMonth = 0;
 	std::vector<Employee>employees;

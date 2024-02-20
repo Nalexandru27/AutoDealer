@@ -21,9 +21,13 @@ Engine& Engine::operator=(const Engine& e)
 		this->isHybrid = e.isHybrid;
 		this->series = e.series;
 		this->fuel = e.fuel;
+		return *this;
 	}
-	return *this;
 }
+
+Engine::Engine(const Engine& e) = default;
+
+Engine::Engine(Engine&& e) noexcept = default;
 
 int Engine::getHorsePower()
 {

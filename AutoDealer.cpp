@@ -135,8 +135,8 @@ AutoDealer::AutoDealer(const AutoDealer& source):address(source.address)
 	setSchedule(source.schedule);
 	setChargingStations(source.chargingStations);
 	setRentPerMonth(source.rentPerMonth);
-	setEmployees(source.employees);
-	setCars(source.cars);
+	this->employees = source.employees;
+	this->cars = source.cars;
 }
 
 AutoDealer& AutoDealer::operator=(const AutoDealer& source)
