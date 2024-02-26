@@ -12,7 +12,7 @@ enum DriveTrain {FOUR_WHEEL_DRIVE, FRONT_WHEEL_DRIVE, REAR_WHEEL_DRIVE};
 class Vehicle
 {
 protected:
-	const std::string vehicleIdentificationNumber = "undefined";
+	const std::string vehicleIdentificationNumber = "none";
 	Engine engine;
 	Transmission transmission = MANUAL;
 	DriveTrain driveTrain = FRONT_WHEEL_DRIVE;

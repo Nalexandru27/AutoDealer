@@ -38,6 +38,7 @@ void clearConsole() {
 void main() {
 
 	int choice = -1;
+
 	do {
 		cout << "---------------AutoDealer Management System-----------------------";
 		cout << endl << endl << "Menu:";
@@ -45,9 +46,11 @@ void main() {
 		cout << endl << "2. Add a new AutoDealer";
 		cout << endl << "3. Remove an AutoDealer";
 		cout << endl << "Please enter your choice from the above or 0 to exit: ";
+
 		cin >> choice;
 		if (choice == 1){
 			clearConsole();
+
 			ifstream in("AutoDealers.txt");
 			string temp;
 			int size;
@@ -59,9 +62,25 @@ void main() {
 				autoDealerOption[i + 1] = temp;
 				cout << endl << i+1 << ". " << temp;
 			}
-			cout << endl << "Please select an option: ";
+
+			in.close();
+
+			cout << endl << endl << "Please select a location with the number in front of it: ";
+
 			cin >> choice;
+			string autoDealerOptionFile = autoDealerOption[choice] + ".txt";
+			ifstream read(autoDealerOptionFile);
+			
+			in.ignore();
+			string address;
+			getline(read, address);
+			AutoDealer auto1(address);
+			auto1.readDataAutoDealer(read);
+
+			read.close();
+
 			clearConsole();
+
 			string aux;
 			cout << endl << "1.1 Find details about location";
 			cout << endl << "1.2 Get a text file report with the cars available";
@@ -70,22 +89,33 @@ void main() {
 			cout << endl << "1.5 Remove a car sold";
 			cout << endl << "1.6 Add a new employee";
 			cout << endl << "1.7 Fire an employee";
-			cout << endl << "Please enter your choice (in example: 1.3) or 'prev' to go back: ";
+			cout << endl << endl << "Please enter your choice (in example: 1.3) or 'prev' to go back: ";
 			cin >> aux;
-			if (aux == "prev") {
+			if (aux == "0") {
 				return;
 			}
 			else {
 				if (aux == "1.1") {
-
+					auto1.displayLocationInfo();
+				}
+				if (aux == "1.2") {
+					string temp;
+					cout << endl << "Enter name of the txt report (ex. report.txt): ";
+					cin.ignore();
+					cin >> temp;
+					ofstream out(temp,ios::out);
+					vector<Car> c;
+					c = auto1.getCars();
+					Car::getReport(out, c);
+					cout << endl << "Report generated with success!";
 				}
 			}
 		}
-		//cout << endl << "\Press c to continue or q to quit: ";
-		//cin >> choice;
+		cout << endl << "\Press 1 to continue or 0 to quit: ";
+		cin >> choice;
 	} while (choice != 0);
 
-	Employee em2("Carl Doris", 21, false, 2545.89, "sales", "sales manager", "Taking care of our customers needs and presents the available options", true, 1, new string[1]{ "cashier" }, 3, new string[3]{ "romanian","english","french" }, 150);
+	/*Employee em2("Carl Doris", 21, false, 2545.89, "sales", "sales manager", "Taking care of our customers needs and presents the available options", true, 1, new string[1]{ "cashier" }, 3, new string[3]{ "romanian","english","french" }, 150);
 	Employee em1("John Doe", 25, true, 2590.89, "sales", "sales representative", "Taking care of our customers needs and presents the available options", false, 2, new string[2]{ "cashier","help desk support" }, 2, new string[2]{ "romanian","english" }, 130);
 	
 	string temp;
@@ -102,6 +132,5 @@ void main() {
 	employees.push_back(em1);
 	AutoDealer a1("G&C AutoDealer", "Splaiul Unirii 25", true, 10000, 25, "9:00-19:00", 10, 15000, employees, cars);		
 	ofstream outF("G&C AutoDealer.txt", ios::out);
-	a1.displayTxtFile(outF);
-
+	a1.displayTxtFile(outF);*/
 }

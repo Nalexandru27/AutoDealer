@@ -6,8 +6,8 @@
 class AutoDealer
 {
 private:
-	std::string name = " ";
 	const std::string address = "none";
+	std::string name = " ";
 	bool hasService = false;
 	int locationSize = 0;
 	int parkingSlots = 0;
@@ -18,7 +18,7 @@ private:
 	std::vector<Car> cars;
 public:
 	//default constructor
-	AutoDealer(const std::string);
+	AutoDealer(const std::string address);
 
 	//constructor
 	AutoDealer(std::string name, 
@@ -83,6 +83,9 @@ public:
 
 	void setCars(std::vector<Car> cars);
 
+	//display info for location stats without employees and cars
+	void displayLocationInfo();
+
 	//add a new car
 	void addCar(const Car& car);
 
@@ -97,5 +100,8 @@ public:
 
 	//generate report into a text file
 	void displayTxtFile(std::ofstream& out);
+
+	//read from text file;
+	void readDataAutoDealer(std::ifstream& in);
 };
 

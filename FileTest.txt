@@ -1,0 +1,129 @@
+
+CARS AVAILABLE: 
+
+*------------- CAR 1 STATS -------------*
+
+Brand: Mercedes Benz
+Model: Class A
+Year: 2014
+Kilometers done: 78900
+Identification number: HDASUDVSNAK
+-----------------------------------------------
+Engine puts out: 145hp and 360nM of torque
+It has: 5 cylinders
+Capacity is: 2L
+Hybrid: No
+Engine series: KAFN251JNLDE041
+It's running using: diesel fuel
+-----------------------------------------------
+Transmission is: Automatic
+Drivetrain is: Four Wheel Drive
+It has: 4 wheels
+No accident
+It has 3 services done: 
+1. Oil change
+2. Brake change
+3. Repaint front bumper
+Color: Baby Blue
+Price: 16983.9$
+-----------------------------------------------
+Category/type: COUPE
+
+Exterior features: 
+1. AMG Bumper
+2. AMG Spoiler
+-----------------------------------------------
+Interior features: 
+1. Carbon Fiber Seats
+2. Diamond Gear Changer
+3. Piano Black Console
+-----------------------------------------------
+Options: 
+Code 4391: Security Alarm
+Code 4721: SOS system
+
+
+*------------- CAR 2 STATS -------------*
+
+Brand: Mercedes Benz
+Model: Class c
+Year: 2016
+Kilometers done: 45000
+Identification number: HDASUDVSNAK
+-----------------------------------------------
+Engine puts out: 250hp and 520nM of torque
+It has: 6 cylinders
+Capacity is: 3L
+Hybrid: No
+Engine series: IAAYB1857NAURNE
+It's running using: diesel fuel
+-----------------------------------------------
+Transmission is: Automatic
+Drivetrain is: Four Wheel Drive
+It has: 4 wheels
+No accident
+It has 3 services done: 
+1. Oil change
+2. Brake change
+3. Repaint front bumper
+Color: Baby Blue
+Price: 20135.9$
+-----------------------------------------------
+Category/type: COUPE
+
+Exterior features: 
+1. AMG Bumper
+2. AMG Spoiler
+-----------------------------------------------
+Interior features: 
+1. Carbon Fiber Seats
+2. Diamond Gear Changer
+3. Piano Black Console
+-----------------------------------------------
+Options: 
+Code 4391: Security Alarm
+Code 4721: SOS system
+
+
+*------------- CAR 3 STATS -------------*
+
+Brand: Mercedes Benz
+Model: Class E
+Year: 2012
+Kilometers done: 94000
+Identification number: HDASUDVSNAK
+-----------------------------------------------
+Engine puts out: 190hp and 400nM of torque
+It has: 4 cylinders
+Capacity is: 2L
+Hybrid: No
+Engine series: UMSYERBV7381CANC
+It's running using: diesel fuel
+-----------------------------------------------
+Transmission is: Automatic
+Drivetrain is: Four Wheel Drive
+It has: 4 wheels
+No accident
+It has 3 services done: 
+1. Oil change
+2. Brake change
+3. Repaint front bumper
+Color: Baby Blue
+Price: 25000.9$
+-----------------------------------------------
+Category/type: COUPE
+
+Exterior features: 
+1. AMG Bumper
+2. AMG Spoiler
+-----------------------------------------------
+Interior features: 
+1. Carbon Fiber Seats
+2. Diamond Gear Changer
+3. Piano Black Console
+-----------------------------------------------
+Options: 
+Code 4391: Security Alarm
+Code 4721: SOS system
+
+

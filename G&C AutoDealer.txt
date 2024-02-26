@@ -1,159 +1,145 @@
-|  Welcome to G&C AutoDealer AutoDealer  |
-
-Our address is: Splaiul Unirii 25
-We offer auto service
-This location is: 10000 meters squared
-This location has: 25 parking slots
-Schedule hours is: 9:00-19:00
-This location has: 10 chargings stations for electric cars
-Rent per month is: 15000 euro
-
-------------Employee List-------------
-
-Employee 1: John Doe
-Age: 25
-Is married
-Salary: 2590.89
-Working in sales department
-Job profile: sales representative
-Job responsabilities: Taking care of our customers needs and presents the available options
-Is not manager
-Number of previous working experiences: 2
-1. cashier
-2. help desk support
-Number of languages known: 2
-- romanian
-- english
-Monthly bonus: 130
-
-
-CARS AVAILABLE: 
-
-*------------- CAR 1 STATS -------------*
-
-Brand: Mercedes Benz
-Model: Class A
-Year: 2014
-Kilometers done: 78900
-Identification number: HDASUDVSNAK
------------------------------------------------
-Engine puts out: 145hp and 360nM of torque
-It has: 5 cylinders
-Capacity is: 2L
-Hybrid: No
-Engine series: KAFN251JNLDE041
-It's running using: diesel fuel
------------------------------------------------
-Transmission is: Automatic
-Drivetrain is: Four Wheel Drive
-It has: 4 wheels
-No accident
-It has 3 services done: 
-1. Oil change
-2. Brake change
-3. Repaint front bumper
-Color: Baby Blue
-Price: 16983.9$
------------------------------------------------
-Category/type: COUPE
-
-Exterior features: 
-1. AMG Bumper
-2. AMG Spoiler
------------------------------------------------
-Interior features: 
-1. Carbon Fiber Seats
-2. Diamond Gear Changer
-3. Piano Black Console
------------------------------------------------
-Options: 
-Code 4391: Security Alarm
-Code 4721: SOS system
-
-
-*------------- CAR 2 STATS -------------*
-
-Brand: Mercedes Benz
-Model: Class c
-Year: 2016
-Kilometers done: 45000
-Identification number: HDASUDVSNAK
------------------------------------------------
-Engine puts out: 250hp and 520nM of torque
-It has: 6 cylinders
-Capacity is: 3L
-Hybrid: No
-Engine series: IAAYB1857NAURNE
-It's running using: diesel fuel
------------------------------------------------
-Transmission is: Automatic
-Drivetrain is: Four Wheel Drive
-It has: 4 wheels
-No accident
-It has 3 services done: 
-1. Oil change
-2. Brake change
-3. Repaint front bumper
-Color: Baby Blue
-Price: 20135.9$
------------------------------------------------
-Category/type: COUPE
-
-Exterior features: 
-1. AMG Bumper
-2. AMG Spoiler
------------------------------------------------
-Interior features: 
-1. Carbon Fiber Seats
-2. Diamond Gear Changer
-3. Piano Black Console
------------------------------------------------
-Options: 
-Code 4391: Security Alarm
-Code 4721: SOS system
-
-
-*------------- CAR 3 STATS -------------*
-
-Brand: Mercedes Benz
-Model: Class E
-Year: 2012
-Kilometers done: 94000
-Identification number: HDASUDVSNAK
------------------------------------------------
-Engine puts out: 190hp and 400nM of torque
-It has: 4 cylinders
-Capacity is: 2L
-Hybrid: No
-Engine series: UMSYERBV7381CANC
-It's running using: diesel fuel
------------------------------------------------
-Transmission is: Automatic
-Drivetrain is: Four Wheel Drive
-It has: 4 wheels
-No accident
-It has 3 services done: 
-1. Oil change
-2. Brake change
-3. Repaint front bumper
-Color: Baby Blue
-Price: 25000.9$
------------------------------------------------
-Category/type: COUPE
-
-Exterior features: 
-1. AMG Bumper
-2. AMG Spoiler
------------------------------------------------
-Interior features: 
-1. Carbon Fiber Seats
-2. Diamond Gear Changer
-3. Piano Black Console
------------------------------------------------
-Options: 
-Code 4391: Security Alarm
-Code 4721: SOS system
-
-
-
-
+Splaiul Unirii 25
+G&C AutoDealer
+1
+10000
+25 
+9:00-19:00
+10 
+15000
+2
+John Doe
+25
+1
+2590.89
+sales
+sales representative
+Taking care of our customers needs and presents the available options
+0
+2
+cashier
+help desk support
+2
+romanian
+english
+130
+Carl Doris
+21
+0
+2545.89
+sales
+sales manager
+Taking care of our customers needs and presents the available options
+1
+1
+cashier
+3
+romanian
+english
+french
+150
+3
+HDASUDVSNAK
+145
+360
+5
+2.0
+0
+KAFN251JNLDE041
+1
+2
+0
+4
+78900
+Mercedes Benz
+Class A
+2014
+false
+3
+Oil change
+Brake change
+Repaint front bumper
+Baby Blue
+16983.89
+3
+2
+AMG Bumper
+AMG Spoiler
+3
+Carbon Fiber Seats
+Diamond Gear Changer
+Piano Black Console
+2
+4391
+Security Alarm
+4721
+SOS system
+HDASUDVSNAK
+250
+520
+6
+3.0
+0
+IAAYB1857NAURNE
+1
+2
+0
+4
+45000
+Mercedes Benz
+Class c
+2016
+false
+3
+Oil change
+Brake change
+Repaint front bumper
+Baby Blue
+20135.89
+3
+2
+AMG Bumper
+AMG Spoiler
+3
+Carbon Fiber Seats
+Diamond Gear Changer
+Piano Black Console
+2
+4391
+Security Alarm
+4721
+SOS system
+HDASUDVSNAK
+190
+400
+4
+2.0
+0
+UMSYERBV7381CANC
+1
+2
+0
+4
+94000
+Mercedes Benz
+Class E
+2012
+false
+3
+Oil change
+Brake change
+Repaint front bumper
+Baby Blue
+25000.89
+3
+2
+AMG Bumper
+AMG Spoiler
+3
+Carbon Fiber Seats
+Diamond Gear Changer
+Piano Black Console
+2
+4391
+Security Alarm
+4721
+SOS system

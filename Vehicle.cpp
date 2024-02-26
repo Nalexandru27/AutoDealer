@@ -11,7 +11,7 @@ Vehicle::~Vehicle()
 	}
 }
 
-Vehicle::Vehicle(const std::string vehicleIdentificationNumber) :vehicleIdentificationNumber(vehicleIdentificationNumber){}
+Vehicle::Vehicle(const std::string vehicleIdentificationNumber):vehicleIdentificationNumber(vehicleIdentificationNumber){}
 
 Vehicle::Vehicle(const Vehicle& v):vehicleIdentificationNumber(v.vehicleIdentificationNumber)
 {

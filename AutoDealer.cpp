@@ -90,6 +90,18 @@ void AutoDealer::setCars(std::vector<Car> cars)
 	}
 }
 
+void AutoDealer::displayLocationInfo()
+{
+	std::cout << std::endl << "Address is: " << this->address;
+	std::cout << std::endl << "Name is: " << this->name;
+	this->hasService == 1 ? std::cout << std::endl << "Has Service" : std::cout << std::endl << "Does not have a service";
+	std::cout << std::endl << "Location size: " << this->locationSize;
+	std::cout << std::endl << "Parking Slots: " << this->parkingSlots;
+	std::cout << std::endl << "Schedule: " << this->schedule;
+	std::cout << std::endl << "Charging Stations: " << this->chargingStations;
+	std::cout << std::endl << "Rent per month: " << this->rentPerMonth;
+}
+
 void AutoDealer::addCar(const Car& car)
 {
 	this->cars.push_back(car);
@@ -111,6 +123,35 @@ void AutoDealer::addEmployee(const Employee& employee)
 	this->employees.push_back(employee);
 }
 
+void AutoDealer::readDataAutoDealer(std::ifstream& in) {
+	getline(in, this->name);
+	in >> this->hasService;
+	in >> this->locationSize;
+	in >> this->parkingSlots;
+	in.ignore();
+	in >> this->schedule;
+	in >> this->chargingStations;
+	in >> this->rentPerMonth;
+	int noEmployees;
+	in >> noEmployees;
+	for (int i = 0; i < noEmployees; i++) {
+		Employee temp;
+		in.ignore();
+		temp.readEmployeeFromTextFile(in);
+		this->employees.push_back(temp);
+	}
+	int noCars;
+	in >> noCars;
+	std::string vehicleId;
+	for (int i = 0; i < noCars; i++) {
+		in >> vehicleId;
+		Car temp(vehicleId);
+		in.ignore();
+		temp.readCarDataFromTxtFile(in);
+		this->cars.push_back(temp);
+	}
+}
+
 void AutoDealer::displayTxtFile(std::ofstream& out)
 {
 	out << "|  Welcome to " << this->name << " AutoDealer  |" << std::endl;
@@ -126,7 +167,7 @@ void AutoDealer::displayTxtFile(std::ofstream& out)
 	out << std::endl << std::endl;
 }
 
-AutoDealer::AutoDealer(const std::string):address(address) {}
+AutoDealer::AutoDealer(const std::string address):address(address) {}
 
 AutoDealer::AutoDealer(std::string name, const std::string address, bool hasService, int locationSize, int parkingSlots, std::string schedule, int chargingStations, int rentPerMonth, std::vector<Employee> employees, std::vector<Car> cars):address(address)
 {
