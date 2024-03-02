@@ -89,7 +89,7 @@ void main() {
 			cout << endl << "1.5 Remove a car sold";
 			cout << endl << "1.6 Add a new employee";
 			cout << endl << "1.7 Fire an employee";
-			cout << endl << endl << "Please enter your choice (in example: 1.3) or 'prev' to go back: ";
+			cout << endl << endl << "Please enter your choice (in example: 1.3) or '0' to go back: ";
 			cin >> aux;
 			if (aux == "0") {
 				return;
@@ -108,6 +108,21 @@ void main() {
 					c = auto1.getCars();
 					Car::getReport(out, c);
 					cout << endl << "Report generated with success!";
+				}
+				if (aux == "1.3") {
+
+				}
+				if (aux == "1.4") {
+
+				}
+				if (aux == "1.5") {
+
+				}
+				if (aux == "1.6") {
+
+				}
+				if (aux == "1.7") {
+
 				}
 			}
 		}
